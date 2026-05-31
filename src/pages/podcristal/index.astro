@@ -1,0 +1,586 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const WA_NUMBER = "5519974062004";
+const WA_MSG = encodeURIComponent("Olá! Vim pela landing page e quero agendar meu Diagnóstico Gratuito.");
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://cristalstudios.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Produção de Podcast",
+      item: "https://cristalstudios.com/podcristal/",
+    },
+  ],
+};
+
+const service = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Produção de Podcast Profissional em Campinas",
+  serviceType: "Podcast Production",
+  provider: { "@id": "https://cristalstudios.com/#business" },
+  areaServed: [
+    { "@type": "City", name: "Campinas" },
+    { "@type": "AdministrativeArea", name: "Região Metropolitana de Campinas" },
+  ],
+  description:
+    "Produção completa de podcast — roteiro, gravação em estúdio broadcast, edição premium, cortes para redes sociais e estratégia de distribuição multicanal.",
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    priceCurrency: "BRL",
+    price: "0",
+    description: "Diagnóstico gratuito de 30 minutos",
+  },
+};
+---
+
+<Layout
+  title="Produção de Podcast Profissional em Campinas/SP | Cristal Studios"
+  description="Transforme sua expertise em autoridade. Produção completa de podcast em Campinas/SP — estúdio broadcast, edição premium e estratégia de distribuição. Diagnóstico gratuito."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(service)} />
+
+  <!-- HEADER -->
+  <header>
+    <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" />
+    <a href={WA_LINK} target="_blank" rel="noopener" class="btn-header">Diagnóstico Gratuito</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="badge">CAMPINAS / SP — PRODUÇÃO PREMIUM</span>
+      <h1>Seu negócio tem autoridade.<br /><span class="highlight">O mercado ainda não sabe disso.</span></h1>
+      <p class="hero-sub">
+        Um podcast profissional transforma o que você já sabe em influência real — e atrai clientes que já chegam confiando em você antes mesmo de te conhecer.
+      </p>
+      <div class="hero-ctas">
+        <a href={WA_LINK} target="_blank" rel="noopener" class="btn-primary">Quero meu diagnóstico gratuito</a>
+        <a href="#processo" class="btn-ghost">Ver como funciona →</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">+500</span>
+          <span class="stat-label">EPISÓDIOS PRODUZIDOS</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">PRODUÇÃO LOCAL</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">3x1</span>
+          <span class="stat-label">ÁUDIO, VÍDEO E REELS</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="/estudio.jpg" alt="Estúdio Cristal Studios" />
+      <div class="hero-img-overlay"></div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">O PROBLEMA</div>
+      <h2>Você produz resultado.<br /><span class="highlight">Mas ninguém está vendo.</span></h2>
+      <p class="section-sub">
+        Empresários com anos de experiência, que dominam seus mercados, continuam invisíveis para novos clientes — porque nunca posicionaram sua voz onde ela precisa estar.
+      </p>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">🎤</span>
+          <h3>Você depende só de indicação</h3>
+          <p>Indicações são ótimas, mas limitadas. Sem um canal de conteúdo, seu crescimento fica refém da sorte e da agenda dos outros.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📉</span>
+          <h3>Concorrentes menores aparecem mais</h3>
+          <p>Quem fala, vende. Enquanto você entrega resultados em silêncio, quem aparece nas redes é percebido como referência — mesmo sabendo menos que você.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⏱️</span>
+          <h3>Não tem tempo para produzir conteúdo</h3>
+          <p>Você tentou. Gravou pelo celular, editou sozinho, desistiu. Produção de conteúdo profissional exige estrutura, não improviso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-tag">A SOLUÇÃO</div>
+      <h2>Podcast não é tendência.<br /><span class="highlight">É a ferramenta de autoridade mais poderosa para empresários.</span></h2>
+      <blockquote>
+        "Quem grava com estratégia constrói confiança em escala. Seu próximo cliente já chega sabendo que você é a escolha certa."
+      </blockquote>
+      <p class="section-sub">
+        Um único episódio bem produzido pode virar 10 conteúdos para redes sociais, um artigo, uma série de stories e ainda posicionar você como especialista no Google.
+      </p>
+      <div class="solucao-grid">
+        <div class="solucao-item">
+          <span class="solucao-icon">🏆</span>
+          <div>
+            <strong>AUTORIDADE</strong>
+            <p>Apareça onde seu público já busca referências: YouTube, Spotify, Apple Podcasts.</p>
+          </div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-icon">✖️</span>
+          <div>
+            <strong>MULTIPLICAÇÃO</strong>
+            <p>1 gravação vira até 20 conteúdos: reels, shorts, posts e stories prontos.</p>
+          </div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-icon">🤝</span>
+          <div>
+            <strong>CONFIANÇA</strong>
+            <p>Clientes que consomem seu conteúdo chegam pré-aquecidos. Menos objeções, mais conversão.</p>
+          </div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-icon">📅</span>
+          <div>
+            <strong>CONSISTÊNCIA</strong>
+            <p>Com estrutura profissional, você grava com regularidade sem sobrecarregar sua agenda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-tag">O PROCESSO</div>
+      <h2>Do zero ao ar. <span class="highlight">Sem complicação.</span></h2>
+      <p class="section-sub">Você chega, fala. Nós cuidamos de tudo o mais — da estratégia à publicação.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Diagnóstico Estratégico</h3>
+            <p>Entendemos seu negócio, seu público e seus objetivos. Definimos o posicionamento e o formato ideal do seu podcast antes de gravar um único episódio.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Roteiro e Estratégia de Conteúdo</h3>
+            <p>Nossa equipe prepara os temas que realmente geram autoridade e convertem — sem improvisação, sem conteúdo genérico.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Gravação no Estúdio Premium</h3>
+            <p>Você grava no nosso estúdio profissional em Campinas: câmeras de cinema, áudio broadcast e iluminação impecável. Parece caro. Não é.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <div>
+            <h3>Edição Profissional</h3>
+            <p>Edição de vídeo, tratamento de áudio, criação de cortes para redes sociais, legendas automáticas e identidade visual do seu programa.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">5</span>
+          <div>
+            <h3>Publicação e Distribuição</h3>
+            <p>Seu podcast no YouTube, Spotify, Apple Podcasts e demais plataformas. Conteúdo reprogramado para Instagram, LinkedIn e YouTube Shorts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-tag">NOSSOS DIFERENCIAIS</div>
+      <h2>Por que a Cristal Studios <span class="highlight">é diferente.</span></h2>
+      <p class="section-sub">Não somos só um estúdio. Somos parceiros estratégicos do seu posicionamento.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">🎙️</span>
+          <h3>Áudio Broadcast</h3>
+          <p>Microfones e tratamento acústico profissional. Áudio ruim quebra autoridade. O seu será impecável.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎬</span>
+          <h3>Câmeras de Cinema</h3>
+          <p>Produção visual que transmite credibilidade antes mesmo da primeira palavra. A imagem comunica antes da fala.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <h3>Entrega Rápida</h3>
+          <p>Seu conteúdo editado em até 5 dias úteis. Consistência que constrói autoridade ao longo do tempo.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧠</span>
+          <h3>Estratégia Inclusa</h3>
+          <p>Cada episódio é gravado com intenção. Tema, gancho, CTA e estrutura planejados para gerar negócios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITO VS VERDADE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">MITO VS VERDADE</div>
+      <h2>O que você acredita que <span class="highlight">está te impedindo.</span></h2>
+      <p class="section-sub">Desconstruindo as crenças que fazem empresários adiarem sua presença digital.</p>
+      <div class="mitos">
+        <div class="mito-item">
+          <div class="mito-col mito">
+            <span class="mito-badge">MITO</span>
+            <p>Preciso gravar todo dia para ter resultados.</p>
+          </div>
+          <div class="mito-arrow">→</div>
+          <div class="mito-col verdade">
+            <span class="verdade-badge">VERDADE</span>
+            <p>Precisa gravar com estratégia. Um episódio mensal bem feito supera 30 posts improvisados.</p>
+          </div>
+        </div>
+        <div class="mito-item">
+          <div class="mito-col mito">
+            <span class="mito-badge">MITO</span>
+            <p>Só funciona para quem já é famoso ou tem muitos seguidores.</p>
+          </div>
+          <div class="mito-arrow">→</div>
+          <div class="mito-col verdade">
+            <span class="verdade-badge">VERDADE</span>
+            <p>Podcast cria autoridade. Você não precisa ser famoso para começar — precisa começar para ser reconhecido.</p>
+          </div>
+        </div>
+        <div class="mito-item">
+          <div class="mito-col mito">
+            <span class="mito-badge">MITO</span>
+            <p>É caro e demorado demais para o meu negócio agora.</p>
+          </div>
+          <div class="mito-arrow">→</div>
+          <div class="mito-col verdade">
+            <span class="verdade-badge">VERDADE</span>
+            <p>O custo de ser invisível é muito maior. Uma sessão no estúdio pode gerar conteúdo para um mês inteiro.</p>
+          </div>
+        </div>
+        <div class="mito-item">
+          <div class="mito-col mito">
+            <span class="mito-badge">MITO</span>
+            <p>Não sei falar bem, não tenho jeito para câmera.</p>
+          </div>
+          <div class="mito-arrow">→</div>
+          <div class="mito-col verdade">
+            <span class="verdade-badge">VERDADE</span>
+            <p>Você não precisa "atuar". Postura confiante + linguagem simples = autoridade natural. Nossa equipe prepara você.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-tag">DEPOIMENTOS</div>
+      <h2>Quem já grava com a <span class="highlight">Cristal Studios.</span></h2>
+      <p class="section-sub">Empresários que transformaram conhecimento em presença digital de alto impacto.</p>
+      <div class="depoimentos-grid">
+        <div class="depoimento">
+          <div class="stars">★★★★★</div>
+          <p>"A Cristal Studios mudou completamente como o mercado me enxerga. Meus clientes chegam dizendo que me acompanham há meses antes de fechar negócio. Isso não tem preço."</p>
+          <div class="depoimento-autor">
+            <div class="avatar">F</div>
+            <div>
+              <strong>Fábio</strong>
+              <span>Empresário — Campinas/SP</span>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento">
+          <div class="stars">★★★★★</div>
+          <p>"Eu tinha medo de não saber falar para câmera. A equipe me colocou à vontade desde o primeiro segundo. O resultado ficou muito mais profissional do que eu imaginei."</p>
+          <div class="depoimento-autor">
+            <div class="avatar">O</div>
+            <div>
+              <strong>Olga</strong>
+              <span>Empreendedora — Campinas/SP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section cta-final">
+    <div class="container container-narrow">
+      <div class="section-tag">FALE COM A GENTE AGORA</div>
+      <h2>Pronto para construir <span class="highlight">sua autoridade?</span></h2>
+      <p class="section-sub">
+        Chame no WhatsApp e agende seu Diagnóstico Estratégico gratuito. Uma conversa de 30 minutos para entender seu negócio e mostrar como o podcast pode trabalhar por você.
+      </p>
+      <ul class="checklist">
+        <li>✓ Sessão estratégica gratuita — sem compromisso</li>
+        <li>✓ Diagnóstico personalizado para o seu segmento</li>
+        <li>✓ Proposta com formato e investimento claros</li>
+        <li>✓ Resposta em menos de 1 hora útil</li>
+      </ul>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="btn-primary btn-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Falar no WhatsApp agora
+      </a>
+      <p class="cta-obs">Atendimento de segunda a sexta, das 9h às 18h</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" />
+    <p>Produtora de Áudio, Vídeo e Podcast · Campinas — São Paulo — Brasil</p>
+    <p class="footer-copy">© 2025 Cristal Studios. Todos os direitos reservados.</p>
+  </footer>
+
+</Layout>
+
+<style>
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  header img { height: 48px; width: auto; }
+  .btn-header {
+    background: var(--amber);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-header:hover { background: var(--amber-light); }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    align-items: center;
+  }
+  .hero-inner {
+    padding: 5rem 3rem 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(232,130,26,0.15);
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .highlight { color: var(--amber); }
+  .hero-sub { font-size: 1.1rem; color: #aaa; max-width: 520px; line-height: 1.7; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--amber);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-1px); }
+  .btn-ghost { color: #ccc; font-weight: 500; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--amber); }
+  .stats { display: flex; gap: 2rem; align-items: center; padding-top: 1rem; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--amber); }
+  .stat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); }
+  .stat-divider { width: 1px; height: 40px; background: var(--border); }
+  .hero-img { position: relative; height: 100%; min-height: 90vh; overflow: hidden; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #0a0a0a 0%, transparent 40%);
+  }
+
+  /* SECTIONS */
+  .section { padding: 6rem 0; }
+  .section-dark { background: var(--dark); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .container-narrow { max-width: 720px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+  .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 1rem; }
+  .section h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+  .section-sub { font-size: 1.05rem; color: #aaa; max-width: 680px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* CARDS */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--amber); }
+  .card-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .card p { color: #999; font-size: 0.95rem; line-height: 1.6; }
+
+  /* SOLUÇÃO */
+  blockquote {
+    border-left: 3px solid var(--amber);
+    padding: 1rem 1.5rem;
+    background: rgba(232,130,26,0.07);
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #ddd;
+    margin: 1.5rem 0 2rem;
+    max-width: 700px;
+  }
+  .solucao-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .solucao-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .solucao-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .solucao-item strong { display: block; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 0.4rem; }
+  .solucao-item p { color: #999; font-size: 0.92rem; line-height: 1.5; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 2rem; align-items: flex-start; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-size: 2.5rem; font-weight: 900; color: var(--amber); opacity: 0.4; min-width: 3rem; line-height: 1; }
+  .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .step p { color: #999; font-size: 0.95rem; line-height: 1.6; }
+
+  /* MITO VS VERDADE */
+  .mitos { display: flex; flex-direction: column; gap: 1rem; }
+  .mito-item {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mito-col { padding: 1.5rem 1.8rem; }
+  .mito-col p { font-size: 0.95rem; line-height: 1.5; color: #ccc; margin-top: 0.5rem; }
+  .mito { background: rgba(255,255,255,0.02); }
+  .verdade { background: rgba(232,130,26,0.06); }
+  .mito-badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; background: rgba(255,255,255,0.1); color: #888; padding: 0.25rem 0.6rem; border-radius: 100px; }
+  .verdade-badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; background: rgba(232,130,26,0.2); color: var(--amber); padding: 0.25rem 0.6rem; border-radius: 100px; }
+  .mito-arrow { text-align: center; color: var(--amber); font-size: 1.2rem; font-weight: 700; }
+
+  /* DEPOIMENTOS */
+  .depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .depoimento { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+  .stars { color: var(--amber); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .depoimento p { color: #ccc; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+  .depoimento-autor { display: flex; align-items: center; gap: 1rem; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--amber); color: #000;
+    font-weight: 800; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .depoimento-autor strong { display: block; font-size: 0.95rem; }
+  .depoimento-autor span { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* CTA FINAL */
+  .cta-final { text-align: center; }
+  .cta-final .section-sub { margin: 0 auto 2rem; }
+  .checklist { list-style: none; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; margin-bottom: 2.5rem; text-align: left; }
+  .checklist li { color: #bbb; font-size: 0.95rem; }
+  .btn-xl { font-size: 1.1rem; padding: 1rem 2.2rem; border-radius: 10px; }
+  .cta-obs { margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  footer img { height: 44px; width: auto; }
+  footer p { font-size: 0.85rem; color: var(--text-muted); }
+  .footer-copy { font-size: 0.78rem; color: #555; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-img { min-height: 280px; max-height: 320px; order: -1; }
+    .hero-img-overlay { background: linear-gradient(to bottom, transparent 50%, #0a0a0a 100%); }
+    .hero-inner { padding: 2rem 1.5rem 3rem; }
+    header { padding: 0.9rem 1.2rem; }
+    header img { height: 36px; }
+    .section { padding: 4rem 0; }
+    .mito-item { grid-template-columns: 1fr; }
+    .mito-arrow { display: none; }
+    .stats { gap: 1rem; }
+    .stat-divider { display: none; }
+    .btn-header { font-size: 0.78rem; padding: 0.45rem 0.9rem; }
+  }
+</style>

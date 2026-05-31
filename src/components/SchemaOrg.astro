@@ -1,0 +1,204 @@
+---
+const siteUrl = "https://cristalstudios.com";
+const logoUrl = `${siteUrl}/CRISTAL%20STUDIOS%20FUNDO%20PRETO%20TRANSPARENTE.png`;
+const studioImage = `${siteUrl}/estudio.jpg`;
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": `${siteUrl}/#business`,
+  name: "Cristal Studios",
+  alternateName: "Cristal Studios Produções",
+  description:
+    "Produtora de podcast, vídeo institucional, jingles e estratégia de conteúdo em Campinas/SP com mais de 40 anos de mercado.",
+  url: siteUrl,
+  logo: logoUrl,
+  image: [studioImage, logoUrl],
+  telephone: "+5519974062004",
+  email: "relacionamento@cristalstudios.com",
+  priceRange: "$$$",
+  foundingDate: "1984",
+  slogan: "Sua marca merece ser ouvida e vista.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Rua Arlindo Carpino, 20",
+    addressLocality: "Campinas",
+    addressRegion: "SP",
+    postalCode: "13077-101",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -22.880,
+    longitude: -47.057,
+  },
+  hasMap: "https://www.google.com/maps/search/?api=1&query=Rua+Arlindo+Carpino+20+Campinas+SP",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  areaServed: [
+    { "@type": "City", name: "Campinas" },
+    { "@type": "City", name: "Valinhos" },
+    { "@type": "City", name: "Vinhedo" },
+    { "@type": "City", name: "Sumaré" },
+    { "@type": "City", name: "Hortolândia" },
+    { "@type": "City", name: "Jundiaí" },
+    { "@type": "City", name: "Indaiatuba" },
+    { "@type": "City", name: "Paulínia" },
+    { "@type": "AdministrativeArea", name: "Região Metropolitana de Campinas" },
+    { "@type": "State", name: "São Paulo" },
+  ],
+  sameAs: [
+    "https://instagram.com/cristalstudiosproducoes",
+    "https://youtube.com/@cristalstudios",
+    "https://linkedin.com/company/cristalstudios",
+    "https://facebook.com/cristalstudios",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "3",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Fábio" },
+      reviewBody:
+        "A Cristal Studios mudou completamente como o mercado me enxerga. Meus clientes chegam dizendo que me acompanham há meses antes de fechar negócio. Isso não tem preço.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Olga" },
+      reviewBody:
+        "Eu tinha medo de não saber falar para câmera. A equipe me colocou à vontade desde o primeiro segundo. O resultado ficou muito mais profissional do que eu imaginava.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Marcos" },
+      reviewBody:
+        "Trabalho com a Cristal há anos. A qualidade do áudio e a atenção estratégica ao conteúdo são incomparáveis. É o tipo de parceria que faz diferença no resultado final.",
+    },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+5519974062004",
+      contactType: "customer service",
+      areaServed: "BR",
+      availableLanguage: ["Portuguese"],
+      contactOption: "TollFree",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços Cristal Studios",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Produção de Podcast Profissional",
+          serviceType: "Podcast Production",
+          description:
+            "Produção completa de podcasts estratégicos com gravação em estúdio broadcast, edição premium e estratégia de distribuição multicanal.",
+          provider: { "@id": `${siteUrl}/#business` },
+          areaServed: { "@type": "City", name: "Campinas" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Vídeos Institucionais e Comerciais",
+          serviceType: "Video Production",
+          description:
+            "Vídeos institucionais, comerciais e para redes sociais com captação de cinema, motion graphics e pós-produção premium.",
+          provider: { "@id": `${siteUrl}/#business` },
+          areaServed: { "@type": "City", name: "Campinas" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Jingles e Produção de Áudio",
+          serviceType: "Audio Production",
+          description:
+            "Jingles publicitários, institucionais e eleitorais, spots de rádio, identidade sonora exclusiva e áudio livros.",
+          provider: { "@id": `${siteUrl}/#business` },
+          areaServed: { "@type": "City", name: "Campinas" },
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Estratégia e Distribuição de Conteúdo",
+          serviceType: "Content Strategy",
+          description:
+            "Planejamento editorial, otimização para Spotify/YouTube/Apple Podcasts, estratégia de cortes e posicionamento de autoridade.",
+          provider: { "@id": `${siteUrl}/#business` },
+          areaServed: { "@type": "City", name: "Campinas" },
+        },
+      },
+    ],
+  },
+};
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: "Cristal Studios",
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: logoUrl,
+    width: 600,
+    height: 600,
+  },
+  foundingDate: "1984",
+  founders: [{ "@type": "Person", name: "Cristal Studios" }],
+  sameAs: [
+    "https://instagram.com/cristalstudiosproducoes",
+    "https://youtube.com/@cristalstudios",
+    "https://linkedin.com/company/cristalstudios",
+    "https://facebook.com/cristalstudios",
+  ],
+};
+
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Cristal Studios",
+  description:
+    "Produtora de podcast, vídeo e áudio em Campinas/SP — +40 anos de experiência.",
+  publisher: { "@id": `${siteUrl}/#organization` },
+  inLanguage: "pt-BR",
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(localBusiness)}
+/>
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(organization)}
+/>
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(website)}
+/>

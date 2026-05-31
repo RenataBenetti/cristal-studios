@@ -1,0 +1,151 @@
+---
+import { CATEGORIES, type CategorySlug } from '../lib/blog';
+
+export interface Props {
+  type: 'post' | 'category' | 'blog';
+  title: string;
+  description: string;
+  url: string;
+  category?: CategorySlug;
+  publishedAt?: Date;
+  updatedAt?: Date;
+  author?: string;
+  coverImage?: string;
+  readingTime?: number;
+  wordCount?: number;
+  body?: string;
+  tags?: string[];
+}
+
+const SITE_URL = 'https://cristalstudios.com';
+const LOGO_URL = `${SITE_URL}/CRISTAL%20STUDIOS%20FUNDO%20PRETO%20TRANSPARENTE.png`;
+const ORG_ID = `${SITE_URL}/#organization`;
+
+const {
+  type,
+  title,
+  description,
+  url,
+  category,
+  publishedAt,
+  updatedAt,
+  author = 'Cristal Studios',
+  coverImage,
+  readingTime,
+  wordCount,
+  tags = [],
+} = Astro.props;
+
+const absoluteUrl = (path: string) => (path.startsWith('http') ? path : `${SITE_URL}${path}`);
+const absoluteImage = coverImage ? absoluteUrl(coverImage) : `${SITE_URL}/estudio.jpg`;
+
+const breadcrumbItems: Array<{ name: string; item: string }> = [
+  { name: 'Início', item: `${SITE_URL}/` },
+  { name: 'Blog', item: `${SITE_URL}/blog` },
+];
+
+if (type === 'category' && category) {
+  breadcrumbItems.push({
+    name: CATEGORIES[category].name,
+    item: `${SITE_URL}/blog/categoria/${category}`,
+  });
+} else if (type === 'post') {
+  if (category) {
+    breadcrumbItems.push({
+      name: CATEGORIES[category].name,
+      item: `${SITE_URL}/blog/categoria/${category}`,
+    });
+  }
+  breadcrumbItems.push({ name: title, item: absoluteUrl(url) });
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    item: b.item,
+  })),
+};
+
+const blogPostingSchema =
+  type === 'post' && publishedAt
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${absoluteUrl(url)}#blogposting`,
+        headline: title,
+        description,
+        url: absoluteUrl(url),
+        datePublished: publishedAt.toISOString(),
+        dateModified: (updatedAt ?? publishedAt).toISOString(),
+        inLanguage: 'pt-BR',
+        articleSection: category ? CATEGORIES[category].name : undefined,
+        keywords: tags.length > 0 ? tags.join(', ') : undefined,
+        wordCount,
+        timeRequired: readingTime ? `PT${readingTime}M` : undefined,
+        author: {
+          '@type': 'Organization',
+          name: author,
+          url: SITE_URL,
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': ORG_ID,
+          name: 'Cristal Studios',
+          logo: {
+            '@type': 'ImageObject',
+            url: LOGO_URL,
+          },
+        },
+        image: {
+          '@type': 'ImageObject',
+          url: absoluteImage,
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': absoluteUrl(url),
+        },
+        isPartOf: {
+          '@type': 'Blog',
+          '@id': `${SITE_URL}/blog#blog`,
+        },
+      }
+    : null;
+
+const collectionPageSchema =
+  type === 'blog' || type === 'category'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': type === 'category' ? 'CollectionPage' : 'Blog',
+        '@id':
+          type === 'category' && category
+            ? `${SITE_URL}/blog/categoria/${category}#collection`
+            : `${SITE_URL}/blog#blog`,
+        url: absoluteUrl(url),
+        name: title,
+        description,
+        inLanguage: 'pt-BR',
+        publisher: {
+          '@type': 'Organization',
+          '@id': ORG_ID,
+          name: 'Cristal Studios',
+          logo: { '@type': 'ImageObject', url: LOGO_URL },
+        },
+        isPartOf: {
+          '@type': 'WebSite',
+          '@id': `${SITE_URL}/#website`,
+        },
+      }
+    : null;
+---
+
+{blogPostingSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+)}
+{collectionPageSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(collectionPageSchema)} />
+)}
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

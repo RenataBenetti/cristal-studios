@@ -1,0 +1,73 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" />
+      <p>Produtora de Podcast, Vídeo e Áudio<br />Campinas — São Paulo — Brasil</p>
+    </div>
+    <div class="footer-links">
+      <strong>Serviços</strong>
+      <a href="/#producoes">Podcasts Estratégicos</a>
+      <a href="/#producoes">Vídeos Institucionais</a>
+      <a href="/#producoes">Jingles e Áudio</a>
+      <a href="/#producoes">Estratégia Digital</a>
+    </div>
+    <div class="footer-links">
+      <strong>Empresa</strong>
+      <a href="/#historias">Sobre a Cristal</a>
+      <a href="/#estudios">Nosso Estúdio</a>
+      <a href="/#historias">Clientes</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contato">Contato</a>
+    </div>
+    <div class="footer-links">
+      <strong>Redes Sociais</strong>
+      <a href="https://instagram.com/cristalstudiosproducoes" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com/@cristalstudios" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://linkedin.com/company/cristalstudios" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://facebook.com/cristalstudios" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© {year} Cristal Studios Produções. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand img { height: 40px; margin-bottom: 1rem; display: block; }
+  .footer-brand p { color: #666; font-size: 0.85rem; line-height: 1.6; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-links strong { color: #fff; font-size: 0.85rem; margin-bottom: 0.5rem; display: block; }
+  .footer-links a {
+    color: #666; font-size: 0.85rem;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--amber); }
+  .footer-bottom {
+    max-width: 1140px; margin: 0 auto;
+    border-top: 1px solid var(--border); padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { color: #444; font-size: 0.8rem; }
+
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { label: 'ESTÚDIOS', href: '/#estudios', match: ['#estudios'] },
+  { label: 'COMO FUNCIONA', href: '/#como-funciona', match: ['#como-funciona'] },
+  { label: 'PRODUÇÕES', href: '/#producoes', match: ['#producoes'] },
+  { label: 'HISTÓRIAS', href: '/#historias', match: ['#historias'] },
+  { label: 'BLOG', href: '/blog', match: ['/blog'] },
+  { label: 'PACOTES', href: '/#pacotes', match: ['#pacotes'] },
+  { label: 'CONTATO', href: '/#contato', match: ['#contato'] },
+];
+
+const isActive = (href: string) =>
+  href === '/blog' && pathname.startsWith('/blog');
+---
+
+<nav id="navbar-pill">
+  <div class="navpill">
+    <a href="/" class="navpill-brand" aria-label="Cristal Studios — Página Inicial">
+      <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" />
+    </a>
+    <button class="navpill-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navpill-links" id="navLinks">
+      {navItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class:list={['navpill-link', { active: isActive(item.href) }]}
+            data-anchor={item.href.startsWith('/#') ? item.href.slice(2) : ''}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="navpill-glowline"></div>
+</nav>
+
+<style>
+  #navbar-pill {
+    position: fixed;
+    top: 1.5rem;
+    left: 0; right: 0;
+    z-index: 200;
+    display: flex; flex-direction: column; align-items: center;
+    pointer-events: none;
+  }
+  .navpill {
+    pointer-events: auto;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(232, 130, 26, 0.4);
+    box-shadow:
+      0 0 0 1px rgba(232, 130, 26, 0.15) inset,
+      0 8px 32px rgba(0, 0, 0, 0.55),
+      0 0 70px rgba(232, 130, 26, 0.45);
+    border-radius: 100px;
+    padding: 0.6rem 1.8rem 0.6rem 1.4rem;
+    width: 96vw;
+    max-width: 1480px;
+    transition: box-shadow 0.3s ease;
+  }
+  .navpill:hover {
+    box-shadow:
+      0 0 0 1px rgba(232, 130, 26, 0.3) inset,
+      0 10px 36px rgba(0, 0, 0, 0.6),
+      0 0 100px rgba(232, 130, 26, 0.65);
+  }
+  .navpill-brand {
+    display: flex; align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .navpill-brand img {
+    height: 66px; width: auto; display: block;
+  }
+  .navpill-links {
+    display: flex; list-style: none; gap: 0.25rem;
+    margin: 0; padding: 0;
+  }
+  .navpill-link {
+    color: #e8e8e8; text-decoration: none;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.55rem 1rem; border-radius: 100px;
+    transition: color 0.2s, background 0.2s, box-shadow 0.25s, transform 0.15s;
+    white-space: nowrap;
+    position: relative;
+  }
+  .navpill-link:hover,
+  .navpill-link:focus-visible {
+    color: #000;
+    background: var(--amber);
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 120, 0.5) inset,
+      0 0 18px rgba(232, 130, 26, 0.7),
+      0 0 36px rgba(232, 130, 26, 0.45);
+    transform: translateY(-1px);
+  }
+  .navpill-link.active,
+  .navpill-link:active {
+    color: #000;
+    background: var(--amber);
+    transform: translateY(0);
+    box-shadow:
+      0 0 0 1px rgba(255, 220, 160, 0.7) inset,
+      0 0 26px rgba(255, 170, 70, 1),
+      0 0 52px rgba(232, 130, 26, 0.75);
+  }
+  .navpill-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 0.4rem;
+  }
+  .navpill-toggle span {
+    display: block; width: 22px; height: 2px;
+    background: #fff; border-radius: 2px;
+  }
+  .navpill-glowline {
+    width: 80vw; max-width: 1100px;
+    height: 1px;
+    margin-top: 0.4rem;
+    background: linear-gradient(90deg, transparent 0%, rgba(232,130,26,0.5) 50%, transparent 100%);
+  }
+
+  @media (max-width: 900px) {
+    .navpill {
+      gap: 1rem; padding: 0.5rem 1rem;
+      width: 94vw;
+    }
+    .navpill-brand img { height: 48px; }
+    .navpill-links {
+      display: none;
+      flex-direction: column;
+      position: absolute; top: 80px; left: 3vw; right: 3vw;
+      background: rgba(10,10,10,0.97);
+      border: 1px solid rgba(232,130,26,0.3);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      gap: 0.5rem;
+    }
+    .navpill-links.open { display: flex; }
+    .navpill-toggle { display: flex; margin-left: auto; }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle?.addEventListener('click', () => links?.classList.toggle('open'));
+  links?.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links?.classList.remove('open'))
+  );
+
+  // Active link based on scroll position (only on home page with anchors)
+  if (window.location.pathname === '/' || window.location.pathname === '') {
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.navpill-link[data-anchor]');
+    const sections = Array.from(navLinks)
+      .map(link => {
+        const anchor = link.dataset.anchor;
+        if (!anchor) return null;
+        const id = anchor.replace('#', '');
+        const el = document.getElementById(id);
+        return el ? { el, link } : null;
+      })
+      .filter((s): s is { el: HTMLElement; link: HTMLAnchorElement } => s !== null);
+
+    if (sections.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(l => {
+              if (!l.classList.contains('active') || l.dataset.anchor) {
+                l.classList.remove('active');
+              }
+            });
+            const match = sections.find(s => s.el === entry.target);
+            match?.link.classList.add('active');
+          }
+        });
+      }, { threshold: 0.35 });
+      sections.forEach(s => observer.observe(s.el));
+    }
+  }
+</script>
