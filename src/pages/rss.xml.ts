@@ -11,7 +11,7 @@ export async function GET(context: { site?: URL }) {
     title: 'Cristal Studios — Blog',
     description:
       'Estratégia, bastidores e o que aprendemos em 40 anos produzindo podcast, vídeo e áudio.',
-    site: context.site ?? new URL('https://cristalstudios.com'),
+    site: context.site ?? new URL('https://www.cristalstudios.com'),
     items: posts.map(post => ({
       title: post.data.title,
       description: post.data.excerpt,

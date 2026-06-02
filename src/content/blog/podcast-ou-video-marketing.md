@@ -72,15 +72,13 @@ Para a maioria das empresas B2B, **a resposta é videocast** — porque ele se d
 
 A maior objeção é "videocast deve ser caro". Não necessariamente.
 
-Compare:
+Compare o custo por unidade de conteúdo entregue:
 
-| Modelo | Produções/mês | Custo médio | Saídas |
-|---|---|---|---|
-| Vídeo institucional avulso | 1-2 | R$ 8-15k | 1-2 vídeos |
-| Podcast só áudio | 4-8 | R$ 5-12k | 4-8 episódios |
-| **Videocast com cortes** | 4 episódios | R$ 8-18k | 4 long-form + 40 cortes + 4 carrosséis + 4 artigos |
+- **Vídeo institucional avulso:** produção pontual, poucas saídas por ciclo
+- **Podcast só áudio:** mais episódios, mas alcance limitado e sem reaproveitamento visual
+- **Videocast com cortes:** mesma gravação base gera episódios long-form, cortes curtos, carrosséis e artigos
 
-Por episódio entregue (somando todos os formatos), o videocast custa MENOS por unidade de conteúdo. E gera autoridade composta.
+Por unidade de conteúdo entregue (somando todos os formatos), o videocast custa MENOS. E gera autoridade composta.
 
 **Importante:** essa equação só fecha quando a produção é broadcast. Videocast amador entrega 40 cortes amadores, 4 carrosséis fracos e 1 artigo morto. A multiplicação de formatos só multiplica autoridade quando o original tem qualidade técnica que sustenta o cliente final clicando "seguir" no perfil em vez de "fechar".
 

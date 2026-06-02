@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cristalstudios.com',
+  site: 'https://www.cristalstudios.com',
   output: 'static',
   integrations: [
     sitemap({
