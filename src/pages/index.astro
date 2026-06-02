@@ -4,8 +4,110 @@ import Layout from '../layouts/Layout.astro';
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pelo site e quero saber mais sobre os serviços da Cristal Studios.");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
-const WA_MSG_PODCAST = encodeURIComponent("Olá! Tenho interesse em produzir um podcast com a Cristal Studios. Quero agendar um diagnóstico gratuito.");
+const WA_MSG_PODCAST = encodeURIComponent("Olá! Vim pelo site da Cristal Studios e gostaria de agendar uma visita ao estúdio.");
 const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
+
+// Carrossel da ESTRUTURA — substitua por fotos reais do estúdio em /public/estudios/
+const estruturaImgs = [
+  { src: "/estudios/estrutura-4.jpg", alt: "Set de gravação com parede de pedra, painel acústico e tela com a marca Cristal Studios" },
+  { src: "/estudios/estrutura-1.jpg", alt: "Estúdio com painéis acústicos e tela exibindo a marca Cristal Studios" },
+  { src: "/estudios/estrutura-3.jpg", alt: "Sala de controle com mesa de áudio e monitores de estúdio" },
+  { src: "/estudios/estrutura-2.jpg", alt: "Bancada de podcast com microfones profissionais e painel ON AIR" },
+  { src: "/estudios/estrutura-6.jpg", alt: "Estação de áudio com mesa de mixagem e iluminação de ambiente" },
+  { src: "/estudios/estrutura-5.jpg", alt: "Lounge e área de convivência do estúdio" },
+];
+
+// CENÁRIOS — substitua imagens em /public/cenarios/ e ajuste nome/descrição
+const cenarios = [
+  {
+    src: "/cenarios/agata-ambar.jpg",
+    nome: "Estúdio Ágata",
+    desc: "Parede de pedra natural, painel acústico de madeira e tela com a sua marca. Iluminação personalizável para podcasts e entrevistas com visual sofisticado.",
+    alt: "Estúdio Ágata da Cristal Studios em iluminação âmbar",
+  },
+  {
+    src: "/cenarios/agata-azul.jpg",
+    nome: "Estúdio Ágata",
+    desc: "Iluminação RGB totalmente personalizável — o mesmo set em clima azul tecnológico, adaptando o ambiente a cada projeto.",
+    alt: "Estúdio Ágata da Cristal Studios em iluminação azul",
+  },
+  {
+    src: "/cenarios/safira.jpg",
+    nome: "Estúdio Safira",
+    desc: "Cenário cinematográfico com spots de palco, iluminação RGB e painel ON AIR. Visual de impacto para podcasts e formatos premium.",
+    alt: "Estúdio Safira da Cristal Studios",
+  },
+  {
+    src: "/cenarios/safira-detalhe.jpg",
+    nome: "Estúdio Safira",
+    desc: "Estrutura completa de captação — múltiplas câmeras e luz azul cinematográfica para uma produção de alto nível.",
+    alt: "Estúdio Safira da Cristal Studios durante uma gravação",
+  },
+  {
+    src: "/cenarios/perola.jpg",
+    nome: "Estúdio Pérola",
+    desc: "Lounge sofisticado com poltronas confortáveis e painéis acústicos iluminados. Perfeito para rodas de conversa e formatos mais descontraídos.",
+    alt: "Estúdio Pérola da Cristal Studios em iluminação azul",
+  },
+  {
+    src: "/cenarios/perola-detalhe.jpg",
+    nome: "Estúdio Pérola",
+    desc: "Ambiente acolhedor em clima quente durante a gravação, com estrutura de câmeras pronta para receber seus convidados.",
+    alt: "Estúdio Pérola da Cristal Studios em iluminação quente durante gravação",
+  },
+];
+
+// PRODUÇÕES — adicione os vídeos em /public/producoes/ e preencha o campo `video`
+const producoes = [
+  {
+    nome: "Podcast & Videocast",
+    icon: "🎙️",
+    tags: ["Episódios completos", "Cortes", "Bastidores", "Clientes"],
+    texto: "Conversas que geram autoridade, relacionamento e posicionamento para empresas, especialistas e marcas.",
+    video: "", // ex: "/producoes/podcast.mp4"
+    poster: "",
+  },
+  {
+    nome: "Vídeo Aulas e Cursos Online",
+    icon: "🎓",
+    tags: ["Especialistas gravando", "Cursos", "Mentorias"],
+    texto: "Produções educacionais com qualidade profissional para treinamentos, mentorias e infoprodutos.",
+    video: "",
+    poster: "",
+  },
+  {
+    nome: "Treinamentos Corporativos",
+    icon: "🏢",
+    tags: ["Empresas", "Capacitações", "Integrações"],
+    texto: "Conteúdos internos que ajudam empresas a padronizar processos, acelerar treinamentos e desenvolver equipes.",
+    video: "",
+    poster: "",
+  },
+  {
+    nome: "Conteúdo para Redes Sociais",
+    icon: "📱",
+    tags: ["Reels", "Shorts", "Vídeos verticais"],
+    texto: "Transformamos uma gravação em dezenas de conteúdos para ampliar o alcance da sua marca.",
+    video: "",
+    poster: "",
+  },
+  {
+    nome: "Conteúdo Institucional",
+    icon: "🎬",
+    tags: ["Apresentações empresariais", "Cases", "Cultura organizacional"],
+    texto: "Vídeos que fortalecem a imagem da empresa e comunicam seus diferenciais de forma clara e profissional.",
+    video: "",
+    poster: "",
+  },
+  {
+    nome: "Eventos Corporativos",
+    icon: "🎤",
+    tags: ["Coberturas", "Palestras", "Congressos"],
+    texto: "Registros profissionais para preservar e amplificar os momentos mais importantes da sua empresa.",
+    video: "",
+    poster: "",
+  },
+];
 ---
 
 <Layout
@@ -58,121 +160,227 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section class="section" id="producoes">
-    <div class="container">
-      <div class="section-tag">O QUE FAZEMOS</div>
-      <h2>Produção profissional do início ao fim.<br /><span class="highlight">Você tem a ideia. A gente entrega o resultado.</span></h2>
-      <p class="section-sub">Não somos apenas um estúdio. Somos parceiros estratégicos — cuidamos de tudo: roteiro, gravação, edição, publicação e distribuição.</p>
+  <!-- ════════ ESTÚDIOS (2ª dobra) ════════ -->
+  <section class="section section-dark estudios" id="estudios">
 
-      <div class="servicos-grid">
+    <!-- ESTRUTURA -->
+    <div class="container estrutura-head" id="estrutura">
+      <div class="section-tag estrutura-tag">ESTRUTURA</div>
+      <h2 class="estrutura-title">
+        Estrutura profissional para marcas<br />que valorizam a própria imagem.
+      </h2>
+      <p class="estrutura-sub">
+        Ambientes planejados, equipamentos de alto padrão e mais de 40 anos de
+        experiência audiovisual para transformar cada gravação em uma experiência premium.
+      </p>
+    </div>
 
-        <!-- PODCAST -->
-        <div class="servico-card" id="podcast">
-          <div class="servico-icon">🎙️</div>
-          <h3>Podcasts Estratégicos</h3>
-          <p>Transforme sua expertise em um canal de autoridade. Produzimos e posicionamos seu videocast com qualidade broadcast e estratégia de conteúdo que gera negócios.</p>
-          <ul class="servico-list">
-            <li>Estúdios equipados para gravação de áudio e vídeo</li>
-            <li>Roteiro, direção, gravação, edição e publicação</li>
-            <li>Estratégia de conteúdo e distribuição multicanal</li>
-            <li>Cortes para redes sociais e performance digital</li>
-          </ul>
-          <a href={WA_LINK_PODCAST} target="_blank" rel="noopener" class="btn-servico">Quero meu podcast →</a>
+    <div class="coverflow" id="coverflow">
+      <button class="cf-arrow cf-prev" id="cfPrev" aria-label="Imagem anterior" type="button">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="cf-stage" id="cfStage">
+        {estruturaImgs.map((img, i) => (
+          <figure class="cf-item" data-index={i}>
+            <img src={img.src} alt={img.alt} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+
+      <button class="cf-arrow cf-next" id="cfNext" aria-label="Próxima imagem" type="button">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="cf-dots" id="cfDots" role="tablist" aria-label="Navegação do carrossel"></div>
+    </div>
+
+    <!-- CENÁRIOS -->
+    <div class="container cenarios" id="cenarios">
+      <div class="cenarios-head">
+        <div class="section-tag">CENÁRIOS</div>
+        <h2>Ambientes pensados para <span class="highlight">valorizar sua marca.</span></h2>
+      </div>
+
+      <div class="cenarios-body">
+      <div class="vcar" id="vcar">
+        <div class="vcar-track" id="vcarTrack">
+          {cenarios.map((c, i) => (
+            <article class="vcar-card" data-index={i}>
+              <img src={c.src} alt={c.alt} loading="lazy" />
+              <div class="vcar-overlay">
+                <h3>{c.nome}</h3>
+                <p>{c.desc}</p>
+              </div>
+            </article>
+          ))}
         </div>
+        <div class="vcar-dots" id="vcarDots" role="tablist" aria-label="Navegação dos cenários"></div>
+      </div>
 
-        <!-- VÍDEO -->
-        <div class="servico-card" id="video">
-          <div class="servico-icon">🎬</div>
-          <h3>Vídeos Institucionais e Comerciais</h3>
-          <p>Vídeos pensados para impactar, gerar confiança e vender. Da ideia ao roteiro, da filmagem à edição — cuidamos de tudo com talento e profissionalismo.</p>
-          <ul class="servico-list">
-            <li>Vídeos para sites, redes sociais e anúncios</li>
-            <li>Captação com equipe técnica experiente</li>
-            <li>Motion graphics, trilha sonora e pós-produção premium</li>
-            <li>Edição em Final Cut Pro, DaVinci Resolve, After Effects</li>
-          </ul>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="btn-servico">Quero meu vídeo →</a>
+      <div class="cenarios-text">
+        <p>Nem toda mensagem deve ser comunicada da mesma forma.</p>
+        <p>Por isso, a Cristal Studios oferece ambientes versáteis para podcasts, videocasts, entrevistas, treinamentos, vídeo aulas, cursos online e conteúdos corporativos.</p>
+        <p>Cada cenário foi planejado para proporcionar conforto, qualidade visual e flexibilidade, permitindo que sua marca encontre o ambiente ideal para cada projeto.</p>
+        <a href={WA_LINK} target="_blank" rel="noopener" class="btn-primary btn-xl" style="margin-top:1rem">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right:0.5rem;vertical-align:-4px">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Conhecer os estúdios
+        </a>
+      </div>
+      </div>
+
+      <div class="formatos-grid">
+        <div class="formato-card">
+          <span class="formato-icon">🎙️</span>
+          <h3>Podcast &amp; Videocast</h3>
+          <p>Estrutura profissional para entrevistas, bate-papos, programas corporativos e conteúdos voltados para autoridade e relacionamento.</p>
         </div>
-
-        <!-- JINGLES -->
-        <div class="servico-card" id="jingles">
-          <div class="servico-icon">🎵</div>
-          <h3>Jingles e Produção de Áudio</h3>
-          <p>Comunicação sonora profissional que gera memórias e posiciona marcas. Quem ouve, lembra. Quem lembra, compra.</p>
-          <ul class="servico-list">
-            <li>Jingles publicitários, institucionais e eleitorais</li>
-            <li>Spots de rádio, programas e podcasts</li>
-            <li>Identidade sonora exclusiva para marcas (signo sonoro)</li>
-            <li>Áudio livros e áudio contos</li>
-          </ul>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="btn-servico">Quero meu jingle →</a>
+        <div class="formato-card">
+          <span class="formato-icon">💼</span>
+          <h3>Entrevistas &amp; Conteúdo Institucional</h3>
+          <p>Um ambiente elegante e acolhedor para depoimentos, apresentações empresariais, cases de sucesso e comunicação corporativa.</p>
         </div>
-
-        <!-- ESTRATÉGIA -->
-        <div class="servico-card" id="estrategia">
-          <div class="servico-icon">📊</div>
-          <h3>Estratégia e Distribuição</h3>
-          <p>Conteúdo sem estratégia é apenas ruído. Nós criamos, publicamos e promovemos com inteligência e dados para que seu conteúdo chegue às pessoas certas.</p>
-          <ul class="servico-list">
-            <li>Planejamento editorial e de SEO</li>
-            <li>Otimização para Spotify, YouTube, Apple Podcasts</li>
-            <li>Estratégia de cortes e campanhas em redes sociais</li>
-            <li>Estudo de posicionamento e autoridade</li>
-          </ul>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="btn-servico">Quero minha estratégia →</a>
+        <div class="formato-card">
+          <span class="formato-icon">🎓</span>
+          <h3>Vídeo Aulas &amp; Treinamentos</h3>
+          <p>Espaço preparado para cursos online, mentorias, treinamentos internos, capacitações e conteúdos educacionais com qualidade profissional.</p>
         </div>
+      </div>
+    </div>
 
+    <!-- INFRAESTRUTURA -->
+    <div class="container infra" id="infraestrutura">
+      <div class="infra-top">
+        <div class="infra-intro">
+          <div class="section-tag">INFRAESTRUTURA</div>
+          <h2>Tecnologia profissional para <span class="highlight">resultados profissionais.</span></h2>
+          <p>Por trás de cada gravação existe uma estrutura cuidadosamente planejada para garantir qualidade, segurança e excelência em cada detalhe.</p>
+          <p>A Cristal Studios reúne equipamentos de alto padrão, tratamento acústico, iluminação profissional e sistemas avançados de captação para oferecer uma experiência completa de produção audiovisual.</p>
+          <p>Tudo foi pensado para que você possa focar exclusivamente no seu conteúdo enquanto nossa equipe cuida de toda a operação técnica.</p>
+          <a href={WA_LINK} target="_blank" rel="noopener" class="btn-primary" style="margin-top:0.5rem">Agendar visita ao estúdio</a>
+        </div>
+        <ul class="infra-checklist">
+          <li>Áudio profissional com máxima clareza e definição</li>
+          <li>Captação de vídeo em alta qualidade</li>
+          <li>Iluminação profissional para valorizar pessoas e cenários</li>
+          <li>Monitoramento em tempo real durante as gravações</li>
+          <li>Equipe técnica especializada acompanhando toda a produção</li>
+          <li>Ambientes climatizados e preparados para longas gravações</li>
+          <li>Estrutura ideal para podcasts, videocasts, treinamentos, cursos online e conteúdos corporativos</li>
+          <li>Equipamentos de backup para máxima segurança operacional</li>
+        </ul>
+      </div>
+
+      <div class="infra-cards">
+        <div class="infra-card">
+          <span class="infra-icon">🎙️</span>
+          <h3>Áudio Profissional</h3>
+          <p>Microfones e sistemas de captação que garantem clareza, presença e qualidade sonora em cada gravação.</p>
+        </div>
+        <div class="infra-card">
+          <span class="infra-icon">🎬</span>
+          <h3>Vídeo em Alta Qualidade</h3>
+          <p>Câmeras profissionais e monitoramento em tempo real para imagens nítidas e com acabamento premium.</p>
+        </div>
+        <div class="infra-card">
+          <span class="infra-icon">💡</span>
+          <h3>Iluminação Profissional</h3>
+          <p>Projetada para valorizar pessoas, cenários e a identidade visual de cada produção.</p>
+        </div>
+        <div class="infra-card">
+          <span class="infra-icon">🛡️</span>
+          <h3>Segurança Operacional</h3>
+          <p>Equipamentos redundantes e planos de contingência que garantem mais tranquilidade e confiabilidade durante as gravações.</p>
+        </div>
+        <div class="infra-card">
+          <span class="infra-icon">🎛️</span>
+          <h3>Direção Técnica Especializada</h3>
+          <p>Uma equipe experiente acompanha cada produção para garantir qualidade, segurança e excelência do início ao fim.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ESTÚDIO -->
-  <section class="section section-dark" id="estudios">
+  <!-- PRODUÇÕES -->
+  <section class="section" id="producoes">
     <div class="container">
-      <div class="estudio-grid">
-        <div class="estudio-text">
-          <div class="section-tag">O ESTÚDIO</div>
-          <h2>Infraestrutura de <span class="highlight">nível broadcast</span> no coração de Campinas.</h2>
-          <p>Nossos estúdios foram desenvolvidos para proporcionar a melhor experiência de gravação — para você e para quem vai assistir. Ambiente profissional, climatizado, com tratamento acústico de alta performance.</p>
-          <div class="estudio-features">
-            <div class="estudio-feature">
-              <span class="feature-icon">🎙️</span>
-              <div>
-                <strong>Áudio Broadcast</strong>
-                <p>Microfones de estúdio, tratamento acústico e monitoramento profissional. Áudio impecável em todas as gravações.</p>
-              </div>
+      <div class="section-tag">PRODUÇÕES</div>
+      <h2>Conteúdos que transformam <span class="highlight">conhecimento em autoridade.</span></h2>
+      <p class="section-sub">Podcasts, videocasts, treinamentos, cursos online e produções audiovisuais criadas para fortalecer marcas, compartilhar experiências e gerar novas oportunidades de negócio.</p>
+
+      <div class="prod-grid">
+        {producoes.map((p) => (
+          <article class="prod-card">
+            <div class="prod-media">
+              {p.video
+                ? <video src={p.video} poster={p.poster} muted loop playsinline preload="metadata"></video>
+                : <span class="prod-media-icon">{p.icon}</span>}
+              {!p.video && <span class="prod-media-badge">Em breve: vídeo</span>}
             </div>
-            <div class="estudio-feature">
-              <span class="feature-icon">🎬</span>
-              <div>
-                <strong>Câmeras de Cinema</strong>
-                <p>Equipamentos de alta resolução com iluminação de cinema. A imagem transmite credibilidade antes da primeira fala.</p>
+            <div class="prod-body">
+              <h3>{p.nome}</h3>
+              <div class="prod-tags">
+                {p.tags.map((t) => <span class="prod-tag">{t}</span>)}
               </div>
+              <p>{p.texto}</p>
             </div>
-            <div class="estudio-feature">
-              <span class="feature-icon">💻</span>
-              <div>
-                <strong>Pós-Produção Premium</strong>
-                <p>Final Cut Pro, DaVinci Resolve Studio, Pro Tools, UAD Luna, After Effects, Blender e ferramentas de IA de última geração.</p>
-              </div>
-            </div>
-            <div class="estudio-feature">
-              <span class="feature-icon">☕</span>
-              <div>
-                <strong>Ambiente Completo</strong>
-                <p>Áreas de convivência, conforto total para clientes e visitantes. Você chega, relaxa e foca no que importa: conteúdo.</p>
-              </div>
-            </div>
-          </div>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="btn-primary" style="margin-top:0.5rem">Agendar visita ao estúdio</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section section-dark" id="como-funciona">
+    <div class="container">
+      <div class="cf-head">
+        <div class="section-tag">COMO FUNCIONA</div>
+        <h2>Um processo simples, profissional e pensado para <span class="highlight">você focar apenas no conteúdo.</span></h2>
+        <p class="cf-intro">Da preparação à entrega final, nossa equipe cuida de toda a operação para garantir uma experiência tranquila e uma produção com qualidade profissional.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num">1</div>
+          <span class="step-label">Etapa 1</span>
+          <h3>Planejamento da Produção</h3>
+          <p>Antes da gravação, alinhamos todos os detalhes necessários para que a produção aconteça da melhor forma possível. Definimos cenários, iluminação, identidade visual, vinhetas, elementos gráficos e participantes — tudo preparado para que sua marca seja representada com qualidade e consistência.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">2</div>
+          <span class="step-label">Etapa 2</span>
+          <h3>Gravação</h3>
+          <p>Chegou o dia de transformar ideias em conteúdo. Nossa equipe cuida de toda a operação técnica — áudio, vídeo, iluminação, enquadramentos e monitoramento — para que você e seus convidados foquem exclusivamente na conversa, apresentação ou treinamento.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">3</div>
+          <span class="step-label">Etapa 3</span>
+          <h3>Pós-Produção</h3>
+          <p>Após a gravação, iniciamos a edição e finalização: ajustes de áudio, correções de imagem, inserção de vinhetas, elementos gráficos e demais recursos necessários para entregar um conteúdo profissional e alinhado à identidade da sua marca.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">4</div>
+          <span class="step-label">Etapa 4</span>
+          <h3>Entrega dos Materiais</h3>
+          <p>Com tudo finalizado, os conteúdos são organizados e disponibilizados para sua equipe. Dependendo do projeto, a entrega inclui episódios completos, videocasts, vídeo aulas, treinamentos, conteúdos institucionais e cortes para redes sociais — prontos para publicação.</p>
+        </li>
+      </ol>
+
+      <div class="cf-closing">
+        <div class="cf-closing-img">
+          <img src="/cenarios/agata-ambar.jpg" alt="Equipe Cristal Studios em produção" />
         </div>
-        <div class="estudio-img">
-          <img src="/estudio.jpg" alt="Estúdio Cristal Studios" />
-          <div class="estudio-badge">
-            <span class="eb-num">+40</span>
-            <span class="eb-label">anos de experiência</span>
-          </div>
+        <div class="cf-closing-text">
+          <h3>Você compartilha seu conhecimento.<br /><span class="highlight">Nós cuidamos de todo o resto.</span></h3>
+          <p>Nossa missão é tornar o processo de produção simples, eficiente e profissional, para que você tenha a tranquilidade de focar no que realmente importa: sua mensagem.</p>
+          <a href={WA_LINK_PODCAST} target="_blank" rel="noopener" class="btn-primary btn-xl" style="margin-top:0.5rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right:0.5rem;vertical-align:-4px">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Agende sua visita
+          </a>
         </div>
       </div>
     </div>
@@ -269,8 +477,8 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
     <div class="container">
       <div class="cta-banner-inner">
         <div>
-          <h2>Pronto para começar?<br /><span class="highlight">O diagnóstico é gratuito.</span></h2>
-          <p>30 minutos de conversa. Saímos com um plano claro para o seu conteúdo.</p>
+          <h2>Pronto para começar?<br /><span class="highlight">A primeira visita é gratuita.</span></h2>
+          <p>Venha conhecer o estúdio. Você sai com um plano claro para o seu conteúdo.</p>
         </div>
         <a href={WA_LINK_PODCAST} target="_blank" rel="noopener" class="btn-primary btn-xl">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -289,7 +497,7 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
         <div>
           <div class="section-tag">CONTATO</div>
           <h2>Vamos criar algo <span class="highlight">incrível juntos.</span></h2>
-          <p class="section-sub" style="margin-bottom:2rem">Entre em contato pelo canal que preferir. Respondemos em menos de 1 hora útil.</p>
+          <p class="section-sub" style="margin-bottom:2rem">Entre em contato pelo canal que preferir.</p>
           <div class="contato-items">
             <a href={WA_LINK} target="_blank" rel="noopener" class="contato-item">
               <span class="contato-icon">💬</span>
@@ -328,17 +536,16 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
           </div>
         </div>
         <div class="contato-cta-box">
-          <div class="section-tag">DIAGNÓSTICO GRATUITO</div>
-          <h3>Uma conversa.<br />Um plano claro.</h3>
-          <p>Conte sobre seu negócio e seus objetivos. Em 30 minutos, entregamos um diagnóstico personalizado e uma proposta com formato e investimento.</p>
+          <div class="section-tag">AGENDE SUA VISITA</div>
+          <h3>Conheça o estúdio.<br />Saia com um plano.</h3>
+          <p>Venha conhecer nossos estúdios e conte sobre seus objetivos. Você sai da conversa com um plano claro — formato, cenário e investimento.</p>
           <ul class="check-list">
             <li>✓ Sem compromisso</li>
-            <li>✓ Diagnóstico personalizado para seu segmento</li>
+            <li>✓ Plano personalizado para seu segmento</li>
             <li>✓ Proposta com investimento claro</li>
-            <li>✓ Resposta em menos de 1 hora útil</li>
           </ul>
           <a href={WA_LINK_PODCAST} target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;margin-top:1rem">
-            Agendar diagnóstico gratuito
+            Agende sua visita
           </a>
         </div>
       </div>
@@ -516,12 +723,22 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
   /* ─── SERVIÇOS ─── */
   .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
   .servico-card {
+    position: relative; z-index: 0;
     background: var(--card); border: 1px solid var(--border);
     border-radius: 14px; padding: 2rem;
     display: flex; flex-direction: column; gap: 1rem;
-    transition: border-color 0.25s, transform 0.2s;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .servico-card:hover { border-color: var(--amber); transform: translateY(-3px); }
+  .servico-card::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 20px;
+    background: radial-gradient(60% 75% at 50% 25%, rgba(232,130,26,0.5), rgba(232,130,26,0) 72%);
+    opacity: 0; z-index: -1; filter: blur(24px); transition: opacity 0.4s ease; pointer-events: none;
+  }
+  .servico-card:hover {
+    border-color: var(--amber); transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 36px rgba(232,130,26,0.22);
+  }
+  .servico-card:hover::before { opacity: 1; }
   .servico-icon { font-size: 2.2rem; }
   .servico-card h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
   .servico-card > p { color: #999; font-size: 0.93rem; line-height: 1.65; }
@@ -538,6 +755,96 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
     padding-top: 1rem;
   }
   .btn-servico:hover { color: var(--amber-light); }
+
+  /* ─── PRODUÇÕES ─── */
+  .prod-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.8rem; margin-top: 3rem;
+  }
+  .prod-card {
+    position: relative; z-index: 0;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .prod-card::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 24px;
+    background: radial-gradient(60% 75% at 50% 25%, rgba(232,130,26,0.5), rgba(232,130,26,0) 72%);
+    opacity: 0; z-index: -1; filter: blur(24px); transition: opacity 0.4s ease; pointer-events: none;
+  }
+  .prod-card:hover {
+    border-color: var(--amber); transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 36px rgba(232,130,26,0.22);
+  }
+  .prod-card:hover::before { opacity: 1; }
+  .prod-media {
+    position: relative; aspect-ratio: 16 / 9;
+    border-radius: 18px 18px 0 0; overflow: hidden;
+    background: linear-gradient(135deg, #1d1d1d 0%, #0c0c0c 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .prod-media video, .prod-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .prod-media-icon { font-size: 3.2rem; opacity: 0.45; }
+  .prod-media-badge {
+    position: absolute; top: 0.8rem; right: 0.8rem;
+    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    color: #ccc; background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.25rem 0.6rem; border-radius: 100px;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .prod-body { padding: 1.6rem; }
+  .prod-body h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.8rem; }
+  .prod-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
+  .prod-tag {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--amber); background: rgba(232,130,26,0.12);
+    border: 1px solid rgba(232,130,26,0.3);
+    padding: 0.25rem 0.65rem; border-radius: 100px;
+  }
+  .prod-body p { color: #999; font-size: 0.93rem; line-height: 1.6; margin: 0; }
+
+  /* ─── COMO FUNCIONA ─── */
+  .cf-head { text-align: center; max-width: 840px; margin: 0 auto; }
+  .cf-head h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+  .cf-intro { color: #aaa; font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin: 0 auto; }
+  .steps {
+    list-style: none; padding: 0; margin: 4rem 0 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem;
+    position: relative;
+  }
+  .steps::before {
+    content: ''; position: absolute; top: 34px;
+    left: 12.5%; right: 12.5%; height: 2px;
+    background: linear-gradient(90deg, rgba(232,130,26,0.15), rgba(232,130,26,0.65), rgba(232,130,26,0.15));
+    z-index: 0;
+  }
+  .step { position: relative; text-align: center; padding: 0 0.4rem; }
+  .step-num {
+    position: relative; z-index: 2;
+    width: 68px; height: 68px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), #a85309);
+    color: #000; font-size: 1.6rem; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.3rem;
+    box-shadow:
+      0 0 0 8px rgba(232,130,26,0.12),
+      0 0 22px rgba(232,130,26,0.7),
+      0 0 48px rgba(232,130,26,0.45),
+      0 10px 28px rgba(232,130,26,0.35);
+  }
+  .step-label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: var(--amber); text-transform: uppercase; margin-bottom: 0.45rem; }
+  .step h3 { font-size: 1.12rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.7rem; }
+  .step p { color: #999; font-size: 0.9rem; line-height: 1.62; margin: 0; }
+  .cf-closing {
+    margin-top: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+  }
+  .cf-closing-img img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; display: block; }
+  .cf-closing-text { padding: 3rem; }
+  .cf-closing-text h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+  .cf-closing-text p { color: #aaa; font-size: 1rem; line-height: 1.75; margin-bottom: 1.5rem; }
 
   /* ─── ESTÚDIO ─── */
   .estudio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -558,6 +865,175 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
   }
   .eb-num { font-size: 2rem; font-weight: 900; color: var(--amber); line-height: 1; }
   .eb-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: #888; text-transform: uppercase; }
+
+  /* ─── ESTRUTURA / COVERFLOW ─── */
+  .estudios { overflow: hidden; }
+  .estrutura-head { max-width: 820px; margin: 0 auto; text-align: center; }
+  .estrutura-tag { display: inline-block; }
+  .estrutura-title { font-size: clamp(1.7rem, 3.4vw, 2.7rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+  .estrutura-sub { color: #aaa; font-size: 1.05rem; line-height: 1.75; max-width: 700px; margin: 0 auto; }
+
+  .coverflow {
+    position: relative;
+    margin-top: 3.5rem;
+    height: 560px;
+    perspective: 1900px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cf-stage {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d;
+  }
+  .cf-item {
+    position: absolute; top: 50%; left: 50%;
+    width: min(760px, 52vw); height: 480px;
+    margin: 0; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    transition: transform 0.6s cubic-bezier(0.22,0.61,0.36,1), opacity 0.6s ease, box-shadow 0.4s ease;
+    will-change: transform, opacity;
+    cursor: pointer;
+  }
+  .cf-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cf-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55));
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .cf-item.is-side::after { opacity: 1; }
+  .cf-item.is-active {
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(232,130,26,0.55),
+      0 0 70px rgba(232,130,26,0.28);
+  }
+
+  .cf-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 50; width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(10,10,10,0.8);
+    border: 1px solid rgba(232,130,26,0.5);
+    color: var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .cf-prev { left: 2.5vw; }
+  .cf-next { right: 2.5vw; }
+  .cf-arrow:hover { background: var(--amber); color: #000; box-shadow: 0 0 24px rgba(232,130,26,0.6); }
+
+  .cf-dots { position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 50; }
+  .cf-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; transition: background 0.25s, width 0.25s; }
+  .cf-dot.active { background: var(--amber); width: 22px; border-radius: 4px; }
+
+  /* ─── INFRAESTRUTURA ─── */
+  .infra { margin-top: 6rem; }
+  .infra-top {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start; margin-bottom: 4rem;
+  }
+  .infra-intro h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+  .infra-intro p { color: #aaa; font-size: 1rem; line-height: 1.75; margin-bottom: 1.1rem; }
+  .infra-checklist { list-style: none; padding: 0; margin: 0.4rem 0 0; display: flex; flex-direction: column; gap: 0.9rem; }
+  .infra-checklist li { position: relative; padding-left: 2.2rem; color: #ccc; font-size: 0.98rem; line-height: 1.5; }
+  .infra-checklist li::before {
+    content: '✓'; position: absolute; left: 0; top: 0.05rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: var(--amber); color: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 800;
+  }
+  .infra-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .infra-card {
+    position: relative; z-index: 0;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .infra-card::before {
+    content: ''; position: absolute; inset: -8px;
+    border-radius: 22px;
+    background: radial-gradient(60% 75% at 50% 25%, rgba(232,130,26,0.5), rgba(232,130,26,0) 72%);
+    opacity: 0; z-index: -1; filter: blur(24px);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .infra-card:hover {
+    border-color: var(--amber); transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 36px rgba(232,130,26,0.22);
+  }
+  .infra-card:hover::before { opacity: 1; }
+  .infra-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .infra-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; line-height: 1.3; }
+  .infra-card p { color: #999; font-size: 0.92rem; line-height: 1.65; margin: 0; }
+
+  /* ─── CENÁRIOS (carrossel vertical) ─── */
+  .cenarios { margin-top: 6rem; }
+  .cenarios-head { text-align: center; max-width: 860px; margin: 0 auto 3rem; }
+  .cenarios-head h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.15; }
+  .cenarios-body {
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .vcar {
+    position: relative;
+    height: 580px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .vcar-track {
+    display: flex; flex-direction: column; gap: 1.5rem;
+    transition: transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+  }
+  .vcar-card {
+    position: relative; flex-shrink: 0;
+    height: 480px; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 24px 50px rgba(0,0,0,0.55);
+  }
+  .vcar-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vcar-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85));
+  }
+  .vcar-overlay {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 1.8rem 2rem; z-index: 2;
+  }
+  .vcar-overlay h3 { font-size: 1.4rem; font-weight: 800; margin: 0 0 0.4rem; color: #fff; }
+  .vcar-overlay p { font-size: 0.95rem; line-height: 1.6; color: #d6d6d6; margin: 0; max-width: 30rem; }
+  .vcar-dots {
+    position: absolute; top: 50%; right: 0.8rem; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 0.5rem; z-index: 5;
+  }
+  .vcar-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; padding: 0; transition: background 0.25s, height 0.25s; }
+  .vcar-dot.active { background: var(--amber); height: 22px; border-radius: 4px; }
+
+  .cenarios-text p { color: #aaa; font-size: 1rem; line-height: 1.75; margin-bottom: 1.2rem; }
+
+  .formatos-grid {
+    margin-top: 4rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .formato-card {
+    position: relative; z-index: 0;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .formato-card::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 22px;
+    background: radial-gradient(60% 75% at 50% 25%, rgba(232,130,26,0.5), rgba(232,130,26,0) 72%);
+    opacity: 0; z-index: -1; filter: blur(24px); transition: opacity 0.4s ease; pointer-events: none;
+  }
+  .formato-card:hover {
+    border-color: var(--amber); transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 36px rgba(232,130,26,0.22);
+  }
+  .formato-card:hover::before { opacity: 1; }
+  .formato-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .formato-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; line-height: 1.3; }
+  .formato-card p { color: #999; font-size: 0.92rem; line-height: 1.65; margin: 0; }
 
   /* ─── EMPRESA / VALORES ─── */
   .valores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -632,14 +1108,176 @@ const WA_LINK_PODCAST = `https://wa.me/${WA_NUMBER}?text=${WA_MSG_PODCAST}`;
   .check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
   .check-list li { color: #bbb; font-size: 0.92rem; }
 
+  /* ─── BRILHO NOS ÍCONES ─── */
+  .servico-icon, .formato-icon, .infra-icon, .valor-icon {
+    filter: drop-shadow(0 0 9px rgba(232,130,26,0.5));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .servico-card:hover .servico-icon,
+  .formato-card:hover .formato-icon,
+  .infra-card:hover .infra-icon,
+  .valor-card:hover .valor-icon {
+    filter: drop-shadow(0 0 18px rgba(232,130,26,0.9));
+    transform: scale(1.08);
+  }
+
   /* ─── MOBILE ─── */
   @media (max-width: 900px) {
     .estudio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .estudio-img img { height: 280px; }
+    .estudio-detalhe { margin-top: 4rem; }
     .contato-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .cta-banner-inner { flex-direction: column; text-align: center; }
+    .coverflow { height: 380px; margin-top: 2.5rem; }
+    .cf-item { width: min(540px, 84vw); height: 320px; }
+    .cf-arrow { width: 42px; height: 42px; }
+    .cf-prev { left: 0.5rem; }
+    .cf-next { right: 0.5rem; }
+
+    .cenarios { margin-top: 4rem; }
+    .cenarios-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    .formatos-grid { grid-template-columns: 1fr; margin-top: 3rem; }
+    .infra-top { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 2.8rem 1.5rem; }
+    .steps::before { display: none; }
+    .cf-closing { grid-template-columns: 1fr; }
+    .cf-closing-text { padding: 2rem; }
+    .cf-closing-img img { min-height: 240px; }
+    .cenarios-text { order: 2; }
+    .vcar { order: 1; height: 440px; }
+    .vcar-card { height: 360px; }
   }
   @media (max-width: 600px) {
     .servicos-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // ─── Coverflow carousel (ESTRUTURA) ───
+  function initCoverflow() {
+    const stage = document.getElementById('cfStage');
+    if (!stage) return;
+    const items = Array.from(stage.querySelectorAll<HTMLElement>('.cf-item'));
+    const dotsWrap = document.getElementById('cfDots');
+    const n = items.length;
+    if (!n) return;
+
+    let active = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const dots = items.map((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'cf-dot';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', `Ir para imagem ${i + 1}`);
+      b.addEventListener('click', () => { go(i); reset(); });
+      dotsWrap?.appendChild(b);
+      return b;
+    });
+
+    function render() {
+      items.forEach((item, i) => {
+        let offset = i - active;
+        if (offset > n / 2) offset -= n;
+        if (offset < -n / 2) offset += n;
+        const abs = Math.abs(offset);
+
+        item.classList.toggle('is-active', offset === 0);
+        item.classList.toggle('is-side', offset !== 0);
+
+        if (abs > 2) {
+          item.style.opacity = '0';
+          item.style.pointerEvents = 'none';
+          item.style.transform = `translate(-50%, -50%) translateX(${offset > 0 ? 150 : -150}%) scale(0.6)`;
+        } else {
+          const tx = offset * 46;
+          const rot = offset * -32;
+          const scale = abs === 0 ? 1 : abs === 1 ? 0.7 : 0.54;
+          const op = abs === 0 ? 1 : abs === 1 ? 0.6 : 0.28;
+          item.style.opacity = String(op);
+          item.style.pointerEvents = 'auto';
+          item.style.transform = `translate(-50%, -50%) translateX(${tx}%) rotateY(${rot}deg) scale(${scale})`;
+          item.style.zIndex = String(20 - abs);
+        }
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    function go(i: number) { active = (i + n) % n; render(); }
+    function next() { go(active + 1); }
+    function prev() { go(active - 1); }
+
+    function reset() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 4500);
+    }
+
+    document.getElementById('cfNext')?.addEventListener('click', () => { next(); reset(); });
+    document.getElementById('cfPrev')?.addEventListener('click', () => { prev(); reset(); });
+    items.forEach((item, i) => item.addEventListener('click', () => { if (i !== active) { go(i); reset(); } }));
+
+    const cf = document.getElementById('coverflow');
+    cf?.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+    cf?.addEventListener('mouseleave', reset);
+
+    render();
+    reset();
+  }
+
+  initCoverflow();
+
+  // ─── Carrossel vertical (CENÁRIOS) ───
+  function initVCar() {
+    const track = document.getElementById('vcarTrack');
+    const vcar = document.getElementById('vcar');
+    const dotsWrap = document.getElementById('vcarDots');
+    if (!track || !vcar) return;
+    const cards = Array.from(track.querySelectorAll<HTMLElement>('.vcar-card'));
+    const n = cards.length;
+    if (!n) return;
+
+    let active = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const dots = cards.map((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'vcar-dot';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', `Ir para cenário ${i + 1}`);
+      b.addEventListener('click', () => { go(i); reset(); });
+      dotsWrap?.appendChild(b);
+      return b;
+    });
+
+    function render() {
+      const card = cards[0];
+      const styles = getComputedStyle(track as HTMLElement);
+      const gap = parseFloat(styles.rowGap || styles.gap || '0') || 0;
+      const step = card.offsetHeight + gap;
+      (track as HTMLElement).style.transform = `translateY(${-active * step}px)`;
+      cards.forEach((c, i) => c.style.opacity = i === active ? '1' : '0.5');
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    function go(i: number) { active = (i + n) % n; render(); }
+    function next() { go(active + 1); }
+
+    function reset() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 4000);
+    }
+
+    cards.forEach((c, i) => c.addEventListener('click', () => { if (i !== active) { go(i); reset(); } }));
+    vcar.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+    vcar.addEventListener('mouseleave', reset);
+    window.addEventListener('resize', render);
+
+    render();
+    reset();
+  }
+
+  initVCar();
+</script>
