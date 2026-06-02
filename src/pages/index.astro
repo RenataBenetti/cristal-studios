@@ -216,6 +216,14 @@ const producoes = [
           ))}
         </div>
         <div class="vcar-dots" id="vcarDots" role="tablist" aria-label="Navegação dos cenários"></div>
+        <div class="vcar-arrows">
+          <button class="vcar-arrow" id="vcarPrev" aria-label="Cenário anterior" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+          <button class="vcar-arrow" id="vcarNext" aria-label="Próximo cenário" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
       </div>
 
       <div class="cenarios-text">
@@ -1008,6 +1016,18 @@ const producoes = [
   }
   .vcar-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; padding: 0; transition: background 0.25s, height 0.25s; }
   .vcar-dot.active { background: var(--amber); height: 22px; border-radius: 4px; }
+  .vcar-arrows {
+    position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 0.75rem; z-index: 5;
+  }
+  .vcar-arrow {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    backdrop-filter: blur(6px);
+  }
+  .vcar-arrow:hover { background: var(--amber); border-color: var(--amber); transform: scale(1.1); }
 
   .cenarios-text p { color: #aaa; font-size: 1rem; line-height: 1.75; margin-bottom: 1.2rem; }
 
@@ -1273,6 +1293,9 @@ const producoes = [
     cards.forEach((c, i) => c.addEventListener('click', () => { if (i !== active) { go(i); reset(); } }));
     vcar.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
     vcar.addEventListener('mouseleave', reset);
+
+    document.getElementById('vcarPrev')?.addEventListener('click', () => { go(active - 1); reset(); });
+    document.getElementById('vcarNext')?.addEventListener('click', () => { go(active + 1); reset(); });
     window.addEventListener('resize', render);
 
     render();
