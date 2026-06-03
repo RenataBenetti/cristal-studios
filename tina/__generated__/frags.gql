@@ -1,0 +1,16 @@
+fragment BlogParts on Blog {
+  __typename
+  title
+  excerpt
+  category
+  publishedAt
+  author
+  featured
+  tags
+  seo {
+    __typename
+    title
+    description
+  }
+  body
+}
