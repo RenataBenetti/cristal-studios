@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: RenataBenetti/cristal-studios
+  branch: main
+  base_url: https://www.cristalstudios.com
+  auth_endpoint: auth
+
+media_folder: public/blog-images
+public_folder: /blog-images
+locale: pt
+
+collections:
+  - name: blog
+    label: Posts do Blog
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Resumo (aparece na listagem), name: excerpt, widget: text }
+      - label: Categoria
+        name: category
+        widget: select
+        options:
+          - { label: "Podcast & Conteúdo", value: podcast-conteudo }
+      - { label: Data de Publicação, name: publishedAt, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: Autor, name: author, widget: string, default: "Cristal Studios" }
+      - { label: Post em destaque?, name: featured, widget: boolean, default: false }
+      - { label: Tags, name: tags, widget: list }
+      - label: SEO
+        name: seo
+        widget: object
+        fields:
+          - { label: Título SEO (aparece no Google), name: title, widget: string }
+          - { label: Descrição SEO (aparece no Google), name: description, widget: text }
+      - { label: Conteúdo, name: body, widget: markdown }
