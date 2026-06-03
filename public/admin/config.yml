@@ -25,6 +25,7 @@ collections:
         options:
           - { label: "Podcast & Conteúdo", value: podcast-conteudo }
       - { label: Data de Publicação, name: publishedAt, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: Imagem de capa, name: coverImage, widget: image, required: false, hint: "Aparece no topo do post e no compartilhamento em redes sociais" }
       - { label: Autor, name: author, widget: string, default: "Cristal Studios" }
       - { label: Post em destaque?, name: featured, widget: boolean, default: false }
       - { label: Tags, name: tags, widget: list }
