@@ -1090,7 +1090,7 @@ const producoes = [
     position: relative; border-radius: 16px; overflow: hidden;
     background: #000; box-shadow: 0 12px 40px rgba(0,0,0,0.5);
   }
-  .depo-slot-center .depo-video-wrap { width: 220px; aspect-ratio: 9/16; }
+  .depo-slot-center .depo-video-wrap { width: 270px; aspect-ratio: 9/16; }
   .depo-slot-side   .depo-video-wrap { width: 165px; aspect-ratio: 9/16; }
   .depo-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .depo-play-btn {
@@ -1362,7 +1362,6 @@ const producoes = [
     if (!slotCenter) return;
 
     let current = 0;
-    let autoTimer = null;
 
     function idx(offset) { return (current + offset + N) % N; }
 
@@ -1403,21 +1402,13 @@ const producoes = [
       render();
     }
 
-    function startAuto() {
-      stopAuto();
-      autoTimer = setInterval(() => goTo(current + 1), 5000);
-    }
-    function stopAuto() {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-    }
-
-    document.getElementById('depoPrev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
-    document.getElementById('depoNext')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
-    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); startAuto(); }));
+    document.getElementById('depoPrev')?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('depoNext')?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
 
     // side slot click → move to that video
-    slotPrev.addEventListener('click', () => { goTo(current - 1); startAuto(); });
-    slotNext.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    slotPrev.addEventListener('click', () => goTo(current - 1));
+    slotNext.addEventListener('click', () => goTo(current + 1));
 
     // play/pause center video on button click
     const playBtn = slotCenter.querySelector('.depo-play-btn');
@@ -1432,11 +1423,6 @@ const producoes = [
       slotCenter.querySelector('video').addEventListener('pause', () => playBtn.classList.remove('hidden'));
     }
 
-    // pause auto when user hovers
-    document.querySelector('.depo-car')?.addEventListener('mouseenter', stopAuto);
-    document.querySelector('.depo-car')?.addEventListener('mouseleave', startAuto);
-
     render();
-    startAuto();
   })();
 </script>
