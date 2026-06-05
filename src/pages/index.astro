@@ -1387,14 +1387,15 @@ const producoes = [
 
       // play center, pause sides
       const cv = slotCenter.querySelector('video');
-      cv.muted = true;
-      cv.play().catch(() => {});
+      // pause todos; usuário clica para tocar com som
+      cv.pause();
+      cv.muted = false;
       slotPrev.querySelector('video').pause();
       slotNext.querySelector('video').pause();
 
-      // hide play button while playing
+      // sempre mostrar o botão de play ao trocar de vídeo
       const btn = slotCenter.querySelector('.depo-play-btn');
-      if (btn) btn.classList.toggle('hidden', !cv.paused);
+      if (btn) btn.classList.remove('hidden');
     }
 
     function goTo(n) {
