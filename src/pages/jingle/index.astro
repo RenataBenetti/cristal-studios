@@ -33,6 +33,12 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
     </div>
   </section>
 
+  <!-- FOTO DO ESTÚDIO -->
+  <div class="lp-estudio-foto">
+    <img src="/estudio.jpg" alt="Estúdio profissional Cristal Studios em Campinas/SP" loading="lazy" />
+    <div class="lp-estudio-label">Estúdio Cristal Studios · Campinas/SP</div>
+  </div>
+
   <!-- ═══ QUEBRA DE OBJEÇÃO ═══ -->
   <section class="lp-section lp-section-dark">
     <div class="lp-container">
@@ -207,6 +213,20 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
 </LandingPage>
 
 <style>
+  /* FOTO ESTÚDIO */
+  .lp-estudio-foto {
+    position: relative; width: 100%; max-height: 480px; overflow: hidden;
+  }
+  .lp-estudio-foto img {
+    width: 100%; height: 480px; object-fit: cover; object-position: center;
+    display: block;
+  }
+  .lp-estudio-label {
+    position: absolute; bottom: 1rem; right: 1.5rem;
+    background: rgba(0,0,0,0.6); color: #aaa;
+    font-size: 0.75rem; padding: 0.35rem 0.75rem; border-radius: 6px;
+  }
+
   /* HERO */
   .lp-hero { padding: 5rem 0 4rem; }
   .lp-btn-hero { font-size: 1.1rem; padding: 1.1rem 2.2rem; }
