@@ -1,0 +1,122 @@
+---
+import LandingPage from '../../layouts/LandingPage.astro';
+
+const WA_NUMBER = "5519974062004";
+const WA_MSG = encodeURIComponent("Olá! Vim pela página de Podcast e quero saber mais sobre a produção na Cristal Studios.");
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+
+const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+---
+
+<LandingPage
+  title="Produção de Podcast Profissional em Campinas/SP — Cristal Studios"
+  description="Grave seu podcast num estúdio profissional em Campinas. Estrutura completa, equipe especializada e edição incluída. Agende sua visita gratuita."
+>
+
+  <!-- HERO -->
+  <section class="lp-section lp-hero">
+    <div class="lp-container">
+      <span class="lp-tag">Podcast Profissional</span>
+      <h1 class="lp-h1">
+        Seu podcast com a qualidade que <span class="highlight">sua marca merece.</span>
+      </h1>
+      <p class="lp-lead">
+        Grave, edite e publique com estrutura profissional. Câmeras, microfones de estúdio, tratamento acústico e equipe dedicada para você focar só no conteúdo.
+      </p>
+      <div class="lp-hero-btns">
+        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+          <Fragment set:html={WA_ICON} />
+          Agendar visita gratuita
+        </a>
+        <a href="#como-funciona" class="lp-btn-outline">Como funciona</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section class="lp-section lp-section-dark">
+    <div class="lp-container">
+      <span class="lp-tag">Estrutura</span>
+      <h2 class="lp-h2">Tudo que você precisa <span class="highlight">num só lugar</span></h2>
+      <div class="lp-grid-3">
+        <div class="lp-card">
+          <div class="lp-icon">🎙️</div>
+          <h3>Áudio Profissional</h3>
+          <p>Microfones de estúdio, mesa de som e tratamento acústico para clareza máxima.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">🎬</div>
+          <h3>Gravação em Vídeo</h3>
+          <p>Câmeras profissionais e iluminação para podcasts em formato videocast.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">✂️</div>
+          <h3>Edição Completa</h3>
+          <p>Corte, trilha, abertura, créditos e entrega de episódios prontos para publicar.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">📱</div>
+          <h3>Cortes para Redes</h3>
+          <p>Clips verticais editados para Instagram, TikTok e YouTube Shorts.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">🌐</div>
+          <h3>Distribuição</h3>
+          <p>Publicamos nos principais agregadores: Spotify, Apple Podcasts, YouTube e mais.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">🏢</div>
+          <h3>Cenários Variados</h3>
+          <p>Ambientes diferentes para cada tipo de programa. Escolha o que combina com sua marca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="lp-section" id="como-funciona">
+    <div class="lp-container">
+      <span class="lp-tag">Processo</span>
+      <h2 class="lp-h2">Do zero ao podcast publicado em <span class="highlight">4 etapas</span></h2>
+      <div class="lp-steps">
+        <div class="lp-step"><span class="lp-step-num">1</span><div><strong>Visita e Diagnóstico</strong><p>Você conhece o estúdio e alinhamos o formato ideal para o seu conteúdo.</p></div></div>
+        <div class="lp-step"><span class="lp-step-num">2</span><div><strong>Gravação</strong><p>Nossa equipe cuida de tudo: som, imagem, direção e conforto durante a gravação.</p></div></div>
+        <div class="lp-step"><span class="lp-step-num">3</span><div><strong>Edição e Pós-Produção</strong><p>Editamos o episódio com trilha, cortes e arte para thumbnails.</p></div></div>
+        <div class="lp-step"><span class="lp-step-num">4</span><div><strong>Entrega e Publicação</strong><p>Arquivo final + publicação nas plataformas do seu podcast.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="lp-section lp-cta-final">
+    <div class="lp-container lp-cta-inner">
+      <h2 class="lp-h2">A primeira visita ao estúdio <span class="highlight">é gratuita.</span></h2>
+      <p>Venha conhecer a estrutura e sair com um plano claro para o seu podcast.</p>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+        <Fragment set:html={WA_ICON} />
+        Agendar minha visita
+      </a>
+    </div>
+  </section>
+
+</LandingPage>
+
+<style>
+  .lp-hero { padding-top: 5rem; padding-bottom: 5rem; }
+  .lp-hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .lp-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .lp-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .lp-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+  .lp-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+  .lp-step { display: flex; align-items: flex-start; gap: 1.25rem; }
+  .lp-step-num {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    background: var(--amber); color: #000; font-weight: 900; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lp-step strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
+  .lp-step p { color: var(--text-muted); font-size: 0.9rem; }
+  .lp-cta-final { background: var(--dark); }
+  .lp-cta-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+  .lp-cta-inner p { color: #aaa; }
+</style>

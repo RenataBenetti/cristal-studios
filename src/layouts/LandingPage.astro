@@ -1,0 +1,153 @@
+---
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  image = "/estudio.jpg",
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+
+const siteUrl = "https://www.cristalstudios.com";
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Cristal Studios" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T4D99588');</script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4D99588"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Logo no topo (sem menu) -->
+    <header class="lp-header">
+      <a href="https://www.cristalstudios.com" target="_blank" rel="noopener" aria-label="Cristal Studios">
+        <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" height="40" />
+      </a>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <WhatsAppFloat />
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  :root {
+    --amber: #E8821A;
+    --amber-light: #F4A044;
+    --amber-dark: #C46A0E;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #181818;
+    --border: #2a2a2a;
+    --text-muted: #888888;
+    --white: #ffffff;
+  }
+  .lp-header {
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .lp-container {
+    max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+  }
+  .lp-section { padding: 4rem 0; }
+  .lp-section-dark { background: var(--dark); }
+  .lp-tag {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: 1rem;
+  }
+  .lp-h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900; line-height: 1.15; margin-bottom: 1.25rem;
+  }
+  .lp-h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800; line-height: 1.25; margin-bottom: 1rem;
+  }
+  .lp-lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: #ccc; line-height: 1.7; margin-bottom: 2rem;
+  }
+  .highlight { color: var(--amber); }
+  .lp-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--amber); color: #000; font-weight: 700;
+    font-size: 1.05rem; padding: 1rem 2rem; border-radius: 10px;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .lp-btn:hover { background: var(--amber-light); transform: translateY(-2px); }
+  .lp-btn-outline {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: transparent; color: var(--amber); font-weight: 700;
+    font-size: 1rem; padding: 0.85rem 1.75rem; border-radius: 10px;
+    border: 2px solid var(--amber); text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lp-btn-outline:hover { background: var(--amber); color: #000; }
+  .lp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+  }
+  .lp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .lp-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 680px) {
+    .lp-grid-2, .lp-grid-3 { grid-template-columns: 1fr; }
+    .lp-section { padding: 3rem 0; }
+  }
+</style>
