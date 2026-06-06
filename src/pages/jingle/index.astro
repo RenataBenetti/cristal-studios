@@ -2,102 +2,277 @@
 import LandingPage from '../../layouts/LandingPage.astro';
 
 const WA_NUMBER = "5519974062004";
-const WA_MSG = encodeURIComponent("Olá! Vim pela página de Jingle e quero um orçamento para minha marca.");
+const WA_MSG = encodeURIComponent("Olá! Vim pela página de Jingle e quero um orçamento para minha empresa.");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
 const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
 ---
 
 <LandingPage
-  title="Jingle Profissional para sua Marca — Cristal Studios"
-  description="Jingles originais criados para fixar sua marca na memória do cliente. Produção completa em Campinas/SP: composição, locução e masterização."
+  title="Jingle para Empresa em Campinas — Entrega em 2 Dias | Cristal Studios"
+  description="Jingle profissional para sua empresa em Campinas/SP. Composição original, locução e masterização. Entrega em até 2 dias úteis. Peça um orçamento agora."
 >
 
-  <!-- HERO -->
-  <section class="lp-section lp-hero">
+  <!-- ═══ HERO ═══ -->
+  <section class="lp-hero">
     <div class="lp-container">
-      <span class="lp-tag">Jingle Profissional</span>
+      <span class="lp-tag">Jingle Profissional · Campinas/SP</span>
       <h1 class="lp-h1">
-        Sua marca <span class="highlight">na cabeça</span><br />de todo mundo.
+        O negócio que as pessoas <span class="highlight">ouvem</span><br />
+        é o negócio que as pessoas <span class="highlight">escolhem.</span>
       </h1>
       <p class="lp-lead">
-        Um jingle bem feito vende enquanto você dorme. Criamos a identidade sonora da sua empresa — do roteiro à masterização — com mais de 40 anos de experiência em áudio.
+        Enquanto você acha que jingle não funciona,<br class="br-desk" />
+        seu concorrente já está na cabeça do seu cliente.
       </p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
         <Fragment set:html={WA_ICON} />
-        Quero um orçamento agora
+        Quero um jingle para minha empresa
       </a>
+      <p class="lp-entrega-badge">⚡ Entrega em até 2 dias úteis</p>
     </div>
   </section>
 
-  <!-- BENEFÍCIOS -->
+  <!-- ═══ QUEBRA DE OBJEÇÃO ═══ -->
   <section class="lp-section lp-section-dark">
     <div class="lp-container">
-      <span class="lp-tag">Por que a Cristal Studios</span>
-      <h2 class="lp-h2">O que você recebe</h2>
+      <span class="lp-tag">A verdade que ninguém te conta</span>
+      <h2 class="lp-h2">
+        "Jingle não funciona mais"<br />
+        <span class="highlight">— essa frase custa clientes.</span>
+      </h2>
+      <p class="lp-lead" style="max-width:680px">
+        O jingle nunca parou de funcionar. O que mudou foi onde as pessoas ouvem — redes sociais, WhatsApp, YouTube, rádio online. Quem entendeu isso saiu na frente.
+      </p>
       <div class="lp-grid-3">
-        <div class="lp-card">
-          <div class="lp-icon">🎵</div>
-          <h3>Composição Original</h3>
-          <p>Melodia e letra criadas exclusivamente para a sua marca. Nada de template.</p>
+        <div class="lp-obj-card">
+          <div class="lp-obj-num">7x</div>
+          <p>mais chance de ser lembrado quando a marca tem identidade sonora</p>
         </div>
-        <div class="lp-card">
-          <div class="lp-icon">🎙️</div>
-          <h3>Locução Profissional</h3>
-          <p>Vozes selecionadas para o perfil do seu público. Tom certo, resultado certo.</p>
+        <div class="lp-obj-card">
+          <div class="lp-obj-num">+40</div>
+          <p>anos produzindo jingles que vendem para empresas de Campinas e região</p>
         </div>
-        <div class="lp-card">
-          <div class="lp-icon">🎚️</div>
-          <h3>Masterização de Estúdio</h3>
-          <p>Áudio pronto para rádio, redes sociais, TV e qualquer plataforma digital.</p>
+        <div class="lp-obj-card">
+          <div class="lp-obj-num">2 dias</div>
+          <p>é o tempo para você ter seu jingle pronto, aprovado e nas mãos</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
+  <!-- ═══ O QUE ESTÁ PERDENDO ═══ -->
+  <section class="lp-section">
+    <div class="lp-container lp-dor-wrap">
+      <div class="lp-dor-texto">
+        <span class="lp-tag">Pense bem</span>
+        <h2 class="lp-h2">Toda semana sem jingle<br /><span class="highlight">é mais um cliente que esquece.</span></h2>
+        <p style="color:#aaa; line-height:1.8; margin-bottom:1.5rem">
+          Seu concorrente anuncia. A pessoa ouve o nome dele no rádio, vê no Instagram, ouve no carro de som. Na hora de comprar — adivinha de quem ela lembra?
+        </p>
+        <p style="color:#aaa; line-height:1.8">
+          Um jingle bem feito trabalha por você <strong style="color:#fff">24 horas por dia</strong>, mesmo quando você não está anunciando.
+        </p>
+      </div>
+      <div class="lp-dor-cta">
+        <div class="lp-cta-mini-card">
+          <p class="lp-cta-mini-label">Pronto para ser lembrado?</p>
+          <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="width:100%; justify-content:center">
+            <Fragment set:html={WA_ICON} />
+            Quero meu jingle agora
+          </a>
+          <p class="lp-cta-mini-obs">Orçamento gratuito · Entrega em 2 dias</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ O QUE ESTÁ INCLUÍDO ═══ -->
+  <section class="lp-section lp-section-dark">
+    <div class="lp-container">
+      <span class="lp-tag">Produção completa</span>
+      <h2 class="lp-h2">Tudo incluso. <span class="highlight">Sem surpresas.</span></h2>
+      <div class="lp-grid-2">
+        <div class="lp-check-list">
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Composição original</strong>
+              <p>Melodia e letra criadas exclusivamente para a sua marca. Nada de template genérico.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Locução profissional</strong>
+              <p>Voz selecionada para o perfil do seu negócio e do seu público.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Arranjo musical completo</strong>
+              <p>Instrumentação, trilha e produção de estúdio do início ao fim.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Masterização</strong>
+              <p>Áudio tratado e otimizado para rádio, redes sociais, WhatsApp e TV.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Arquivos em múltiplos formatos</strong>
+              <p>MP3 e WAV prontos para usar em qualquer mídia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="lp-entrega-card">
+          <div class="lp-entrega-icon">⚡</div>
+          <h3>Entrega em <span class="highlight">2 dias úteis</span></h3>
+          <p>Briefing hoje, jingle aprovado em 48h. Sem enrolação, sem prazo indefinido.</p>
+          <div class="lp-entrega-steps">
+            <div class="lp-entrega-step"><span>Dia 1</span><p>Briefing + composição</p></div>
+            <div class="lp-entrega-step"><span>Dia 2</span><p>Gravação + entrega</p></div>
+          </div>
+          <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="margin-top:1.5rem; justify-content:center">
+            <Fragment set:html={WA_ICON} />
+            Começar agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PARA QUEM É ═══ -->
   <section class="lp-section">
     <div class="lp-container">
-      <span class="lp-tag">Processo</span>
-      <h2 class="lp-h2">Do briefing ao jingle em <span class="highlight">4 etapas</span></h2>
-      <div class="lp-steps">
-        <div class="lp-step"><span class="lp-step-num">1</span><div><strong>Briefing</strong><p>Entendemos sua marca, público e objetivo.</p></div></div>
-        <div class="lp-step"><span class="lp-step-num">2</span><div><strong>Composição</strong><p>Criamos melodia e letra alinhadas ao seu posicionamento.</p></div></div>
-        <div class="lp-step"><span class="lp-step-num">3</span><div><strong>Gravação</strong><p>Gravamos no nosso estúdio com tratamento acústico profissional.</p></div></div>
-        <div class="lp-step"><span class="lp-step-num">4</span><div><strong>Entrega</strong><p>Recebe os arquivos prontos para usar em qualquer mídia.</p></div></div>
+      <span class="lp-tag">Para quem é</span>
+      <h2 class="lp-h2">Ideal para <span class="highlight">empresas locais</span> que querem ser lembradas</h2>
+      <div class="lp-grid-3">
+        <div class="lp-card"><div class="lp-icon">🏪</div><h3>Comércio Local</h3><p>Lojas, mercados, farmácias, restaurantes — negócios que precisam estar na memória da vizinhança.</p></div>
+        <div class="lp-card"><div class="lp-icon">🏥</div><h3>Clínicas e Serviços</h3><p>Clínicas, escolas, escritórios e prestadores de serviço que querem transmitir credibilidade.</p></div>
+        <div class="lp-card"><div class="lp-icon">📢</div><h3>Anunciantes de Rádio</h3><p>Quem já anuncia no rádio e quer parar de usar vinheta genérica e ter voz própria.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA FINAL -->
-  <section class="lp-section lp-cta-final">
+  <!-- ═══ CRISTAL STUDIOS ═══ -->
+  <section class="lp-section lp-section-dark">
+    <div class="lp-container lp-sobre-wrap">
+      <div>
+        <span class="lp-tag">Quem faz</span>
+        <h2 class="lp-h2">+40 anos fazendo marcas <span class="highlight">serem ouvidas.</span></h2>
+        <p style="color:#aaa; line-height:1.8; margin-bottom:1.5rem">
+          A Cristal Studios nasceu em 1984. Já passamos pela era do rádio analógico, do jingle de TV e do áudio digital. Uma coisa nunca mudou: <strong style="color:#fff">som de qualidade vende mais.</strong>
+        </p>
+        <p style="color:#aaa; line-height:1.8">
+          Estúdio completo em Campinas/SP, equipe especializada e um portfólio de centenas de jingles produzidos para empresas da região.
+        </p>
+      </div>
+      <div class="lp-sobre-nums">
+        <div class="lp-num-item"><span class="lp-num">+40</span><p>anos de experiência em áudio</p></div>
+        <div class="lp-num-item"><span class="lp-num">2 dias</span><p>prazo de entrega</p></div>
+        <div class="lp-num-item"><span class="lp-num">100%</span><p>produção original e exclusiva</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <section class="lp-cta-final">
     <div class="lp-container lp-cta-inner">
-      <h2 class="lp-h2">Pronto para ter um jingle <span class="highlight">que vende?</span></h2>
-      <p>Orçamento sem compromisso. Resposta em até 1 dia útil.</p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <h2 class="lp-h2">
+        Sua empresa pode estar na cabeça<br />
+        do seu cliente <span class="highlight">ainda essa semana.</span>
+      </h2>
+      <p>Fale agora com a Cristal Studios e receba seu orçamento sem compromisso.</p>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
         <Fragment set:html={WA_ICON} />
-        Falar com a Cristal Studios
+        Quero meu jingle profissional
       </a>
+      <p class="lp-cta-sub">⚡ Entrega em até 2 dias úteis · Estúdio em Campinas/SP</p>
     </div>
   </section>
 
 </LandingPage>
 
 <style>
-  .lp-hero { padding-top: 5rem; padding-bottom: 5rem; }
+  /* HERO */
+  .lp-hero { padding: 5rem 0 4rem; }
+  .lp-btn-hero { font-size: 1.1rem; padding: 1.1rem 2.2rem; }
+  .lp-entrega-badge { margin-top: 1rem; color: var(--amber); font-size: 0.9rem; font-weight: 600; }
+  .br-desk { display: none; }
+  @media (min-width: 680px) { .br-desk { display: block; } }
+
+  /* OBJEÇÃO */
+  .lp-obj-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2rem; text-align: center;
+  }
+  .lp-obj-num { font-size: 2.8rem; font-weight: 900; color: var(--amber); line-height: 1; margin-bottom: 0.75rem; }
+  .lp-obj-card p { color: #aaa; font-size: 0.9rem; line-height: 1.6; }
+
+  /* DOR */
+  .lp-dor-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .lp-cta-mini-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem;
+  }
+  .lp-cta-mini-label { font-weight: 700; font-size: 1rem; }
+  .lp-cta-mini-obs { font-size: 0.78rem; color: var(--text-muted); text-align: center; }
+
+  /* INCLUÍDO */
+  .lp-check-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .lp-check-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .lp-check-icon {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(232,130,26,0.15); color: var(--amber);
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .lp-check-item strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .lp-check-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+  .lp-entrega-card {
+    background: var(--card); border: 1px solid rgba(232,130,26,0.3);
+    border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .lp-entrega-icon { font-size: 2rem; }
+  .lp-entrega-card h3 { font-size: 1.2rem; font-weight: 800; }
+  .lp-entrega-card > p { color: #aaa; font-size: 0.9rem; }
+  .lp-entrega-steps { display: flex; gap: 1rem; margin-top: 0.5rem; }
+  .lp-entrega-step {
+    flex: 1; background: rgba(232,130,26,0.08); border-radius: 10px;
+    padding: 1rem; text-align: center;
+  }
+  .lp-entrega-step span { display: block; font-weight: 800; color: var(--amber); font-size: 0.85rem; margin-bottom: 0.25rem; }
+  .lp-entrega-step p { color: #aaa; font-size: 0.8rem; margin: 0; }
+
+  /* PARA QUEM É */
   .lp-icon { font-size: 2rem; margin-bottom: 1rem; }
   .lp-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .lp-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
-  .lp-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-  .lp-step { display: flex; align-items: flex-start; gap: 1.25rem; }
-  .lp-step-num {
-    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-    background: var(--amber); color: #000; font-weight: 900; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center;
+  .lp-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+  /* SOBRE */
+  .lp-sobre-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .lp-sobre-nums { display: flex; flex-direction: column; gap: 1.5rem; }
+  .lp-num-item { border-left: 3px solid var(--amber); padding-left: 1.25rem; }
+  .lp-num { display: block; font-size: 2rem; font-weight: 900; color: var(--amber); line-height: 1; }
+  .lp-num-item p { color: #aaa; font-size: 0.85rem; margin-top: 0.25rem; }
+
+  /* CTA FINAL */
+  .lp-cta-final { background: var(--amber); padding: 5rem 0; }
+  .lp-cta-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+  .lp-cta-inner h2 { color: #000; }
+  .lp-cta-inner h2 .highlight { color: rgba(0,0,0,0.55); }
+  .lp-cta-inner p { color: rgba(0,0,0,0.7); font-size: 1rem; }
+  .lp-cta-final .lp-btn { background: #000; color: #fff; }
+  .lp-cta-final .lp-btn:hover { background: #1a1a1a; }
+  .lp-cta-sub { font-size: 0.85rem !important; color: rgba(0,0,0,0.6) !important; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .lp-dor-wrap, .lp-sobre-wrap { grid-template-columns: 1fr; gap: 2rem; }
   }
-  .lp-step strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
-  .lp-step p { color: var(--text-muted); font-size: 0.9rem; }
-  .lp-cta-final { background: var(--dark); }
-  .lp-cta-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
-  .lp-cta-inner p { color: #aaa; }
 </style>
