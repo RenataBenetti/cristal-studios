@@ -42,11 +42,15 @@ const ogImageUrl = new URL(image, siteUrl).toString();
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <!-- CSS crítico inline: evita FOUC e layout shift enquanto fonte carrega -->
+    <style>body{font-family:system-ui,sans-serif;background:#0a0a0a;color:#fff;margin:0}*{box-sizing:border-box}</style>
     <!-- Preconnect crítico -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonte: apenas pesos usados, display=swap evita FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Fonte async: não bloqueia renderização -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" /></noscript>
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -64,7 +68,10 @@ const ogImageUrl = new URL(image, siteUrl).toString();
     <!-- Logo no topo (sem menu) -->
     <header class="lp-header">
       <a href="https://www.cristalstudios.com" target="_blank" rel="noopener" aria-label="Cristal Studios">
-        <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" height="40" width="160" loading="eager" fetchpriority="high" />
+        <picture>
+          <source srcset="/logo-cristal.webp" type="image/webp" />
+          <img src="/CRISTAL STUDIOS FUNDO PRETO TRANSPARENTE.png" alt="Cristal Studios" height="40" width="160" loading="eager" fetchpriority="high" />
+        </picture>
       </a>
     </header>
 
