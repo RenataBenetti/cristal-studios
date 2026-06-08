@@ -1,0 +1,234 @@
+---
+// VERSÃO B — Ângulo: Dor / problema
+// Público: médicos, advogados, terapeutas
+// Hipótese: profissional já tentou gravar sozinho e ficou insatisfeito
+import LandingPage from '../../layouts/LandingPage.astro';
+
+const WA_NUMBER = "5519974062004";
+const WA_MSG = encodeURIComponent("Olá! Vim pela página de Videoaula e quero um orçamento para gravar meu curso.");
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+
+const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+---
+
+<LandingPage
+  title="Pare de Perder Alunos por Causa de Vídeo Amador — Cristal Studios Campinas"
+  description="Grave seu curso online em estúdio profissional. Entrega completa: gravação, edição, legendas e arte. Você só precisa aparecer e falar."
+>
+
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="lp-container">
+      <span class="lp-tag">Videoaula Profissional · Campinas/SP</span>
+      <h1 class="lp-h1">
+        Vídeo amador afasta aluno<br />
+        <span class="highlight">antes de você falar uma palavra.</span>
+      </h1>
+      <p class="lp-lead">
+        Você passou anos estudando para ser o melhor no que faz. Não deixe uma câmera ruim e um fundo de consultório destruírem a sua credibilidade nos primeiros 3 segundos de vídeo.
+      </p>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+        <Fragment set:html={WA_ICON} />
+        Quero gravar do jeito certo
+      </a>
+      <p class="lp-badge">✓ Você aparece. A gente grava, edita e entrega pronto.</p>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section class="lp-section lp-section-dark">
+    <div class="lp-container">
+      <span class="lp-tag">Reconhece alguma dessas situações?</span>
+      <h2 class="lp-h2">Se você já tentou gravar sozinho,<br /><span class="highlight">sabe como é frustrante.</span></h2>
+      <div class="lp-grid-3">
+        <div class="lp-dor-card">
+          <div class="lp-dor-icon">😤</div>
+          <p>"Gerei 3 horas de vídeo ruim e tive que regravar tudo."</p>
+        </div>
+        <div class="lp-dor-card">
+          <div class="lp-dor-icon">🔇</div>
+          <p>"O áudio ficou com eco. As pessoas reclamaram que não conseguiam ouvir."</p>
+        </div>
+        <div class="lp-dor-card">
+          <div class="lp-dor-icon">⏳</div>
+          <p>"Fiquei semanas tentando editar e ainda não ficou bom."</p>
+        </div>
+      </div>
+      <div class="lp-dor-cta">
+        <p>Isso acontece porque gravar e editar são profissões — não é falta de esforço, é falta de estrutura.</p>
+        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+          <Fragment set:html={WA_ICON} />
+          Resolver isso de uma vez
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="lp-section">
+    <div class="lp-container">
+      <span class="lp-tag">A solução</span>
+      <h2 class="lp-h2">Você fala o que sabe.<br /><span class="highlight">A gente faz o resto.</span></h2>
+      <div class="lp-grid-2" style="margin-top:2rem; align-items:start">
+        <div class="lp-check-list">
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Estúdio pronto, você só aparece</strong>
+              <p>Câmera, iluminação, microfone e cenário já configurados. Sem montar, sem ajustar, sem estressar.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Equipe técnica durante a gravação</strong>
+              <p>Você foca em falar bem. Nossa equipe garante que tudo está perfeito em tempo real.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Edição profissional completa</strong>
+              <p>Cortes, trilha, abertura, encerramento, legendas e arte. Entregamos o vídeo pronto para publicar.</p>
+            </div>
+          </div>
+          <div class="lp-check-item">
+            <span class="lp-check-icon">✓</span>
+            <div>
+              <strong>Sem enrolação, sem retrabalho</strong>
+              <p>Um dia de gravação rende horas de conteúdo profissional. Sem dor de cabeça.</p>
+            </div>
+          </div>
+        </div>
+        <div class="lp-solucao-cta">
+          <div class="lp-mini-card">
+            <p class="lp-mini-titulo">Quanto tempo você já perdeu tentando gravar sozinho?</p>
+            <p class="lp-mini-sub">Na Cristal Studios, você grava em um dia e recebe tudo pronto.</p>
+            <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="justify-content:center">
+              <Fragment set:html={WA_ICON} />
+              Pedir orçamento agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="lp-section lp-section-dark">
+    <div class="lp-container">
+      <span class="lp-tag">Para quem é</span>
+      <h2 class="lp-h2">Para profissionais que <span class="highlight">não têm tempo a perder</span></h2>
+      <div class="lp-grid-3">
+        <div class="lp-card">
+          <div class="lp-icon">🩺</div>
+          <h3>Médicos</h3>
+          <p>Cursos de saúde, conteúdo educativo para pacientes e formação para outros profissionais.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">⚖️</div>
+          <h3>Advogados</h3>
+          <p>Cursos jurídicos, videoaulas para concursos, conteúdo de atualização e captação de clientes.</p>
+        </div>
+        <div class="lp-card">
+          <div class="lp-icon">🧠</div>
+          <h3>Terapeutas e Coaches</h3>
+          <p>Programas online, mentorias em vídeo e cursos de desenvolvimento pessoal e profissional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL COM FOTO -->
+  <section class="lp-cta-final">
+    <div class="lp-container lp-cta-final-grid">
+      <div class="lp-cta-texto">
+        <h2 class="lp-h2">
+          Chega de adiar seu curso<br />
+          <span class="highlight">por causa de vídeo ruim.</span>
+        </h2>
+        <p>Fale com a Cristal Studios e receba um orçamento para o seu projeto.</p>
+        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+          <Fragment set:html={WA_ICON} />
+          Quero gravar meu curso
+        </a>
+        <p class="lp-cta-sub">Estúdio completo em Campinas/SP · Gravação e edição incluídas</p>
+      </div>
+      <div class="lp-cta-foto">
+        <picture>
+          <source srcset="/estudio.webp" type="image/webp" />
+          <img src="/estudio.jpg" alt="Estúdio Cristal Studios" loading="lazy" width="1200" height="800" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+</LandingPage>
+
+<style>
+  .lp-hero { padding: 5rem 0 4rem; }
+  .lp-btn-hero { font-size: 1.05rem; padding: 1rem 2rem; }
+  .lp-badge { margin-top: 1rem; color: #aaa; font-size: 0.88rem; }
+
+  /* DOR */
+  .lp-dor-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem; text-align: center;
+  }
+  .lp-dor-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .lp-dor-card p { color: #ccc; font-size: 0.92rem; line-height: 1.6; font-style: italic; }
+  .lp-dor-cta {
+    margin-top: 2.5rem; padding: 2rem;
+    background: rgba(232,130,26,0.08); border: 1px solid rgba(232,130,26,0.2);
+    border-radius: 14px; display: flex; align-items: center;
+    justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  }
+  .lp-dor-cta p { color: #ccc; font-size: 0.95rem; max-width: 480px; }
+
+  /* SOLUÇÃO */
+  .lp-check-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .lp-check-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .lp-check-icon {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(232,130,26,0.15); color: var(--amber);
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .lp-check-item strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .lp-check-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+  .lp-mini-card {
+    background: var(--card); border: 1px solid rgba(232,130,26,0.3);
+    border-radius: 16px; padding: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .lp-mini-titulo { font-weight: 700; font-size: 1rem; line-height: 1.4; }
+  .lp-mini-sub { color: #aaa; font-size: 0.88rem; }
+
+  /* CARDS */
+  .lp-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .lp-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .lp-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+  /* CTA FINAL */
+  .lp-cta-final { background: var(--amber); padding: 0; overflow: hidden; }
+  .lp-cta-final-grid { display: grid; grid-template-columns: 1fr 420px; min-height: 400px; }
+  .lp-cta-texto {
+    padding: 4rem; display: flex; flex-direction: column;
+    justify-content: center; gap: 1.25rem;
+  }
+  .lp-cta-texto h2 { color: #000; }
+  .lp-cta-texto h2 .highlight { color: rgba(0,0,0,0.5); }
+  .lp-cta-texto p { color: rgba(0,0,0,0.7); }
+  .lp-cta-final .lp-btn { background: #000; color: #fff; align-self: flex-start; }
+  .lp-cta-final .lp-btn:hover { background: #1a1a1a; }
+  .lp-cta-sub { font-size: 0.82rem !important; color: rgba(0,0,0,0.55) !important; }
+  .lp-cta-foto { overflow: hidden; }
+  .lp-cta-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  @media (max-width: 768px) {
+    .lp-dor-cta { flex-direction: column; }
+    .lp-cta-final-grid { grid-template-columns: 1fr; }
+    .lp-cta-foto { height: 240px; }
+    .lp-cta-texto { padding: 2.5rem 1.5rem; }
+    .lp-cta-final .lp-btn { align-self: stretch; justify-content: center; }
+  }
+</style>
