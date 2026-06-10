@@ -24,7 +24,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft && data.cat
 
 const allCategories = Object.values(CATEGORIES);
 
-const pageTitle = `${category.name} — Blog Cristal Studios`;
+const pageTitle = `${category.name}: Blog Cristal Studios`;
 const pageDescription = category.description;
 ---
 
