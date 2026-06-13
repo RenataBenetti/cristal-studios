@@ -6,6 +6,7 @@ excerpt: Antes de pensar em microfone ou logo, defina quem assiste, por que
   que separa podcast de hobby.
 category: podcast-conteudo
 publishedAt: 2026-03-15
+coverImage: /blog-images/03-agata-2.jpg
 author: Cristal Studios
 featured: true
 tags:
