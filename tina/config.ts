@@ -74,6 +74,7 @@ export default defineConfig({
             required: true,
             ui: {
               dateFormat: 'DD/MM/YYYY',
+              timeFormat: false,
             },
           },
           {
