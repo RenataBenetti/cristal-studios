@@ -3,6 +3,12 @@ name: Deploy para Cloudflare
 on:
   push:
     branches: [main]
+  # Republica o site todo dia às 09:05 UTC (06:05 no horário de Brasília)
+  # para liberar automaticamente os posts agendados cuja data já chegou.
+  schedule:
+    - cron: '5 9 * * *'
+  # Permite republicar manualmente pelo painel do GitHub Actions.
+  workflow_dispatch:
 
 jobs:
   deploy:

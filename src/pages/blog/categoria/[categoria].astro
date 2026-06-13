@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import BlogJsonLd from '../../../components/BlogJsonLd.astro';
-import { CATEGORIES, formatDate, isCategorySlug, type CategorySlug } from '../../../lib/blog';
+import { CATEGORIES, formatDate, getPostSlug, isPublished, isCategorySlug, type CategorySlug } from '../../../lib/blog';
 
 export async function getStaticPaths() {
   return Object.keys(CATEGORIES).map(slug => ({
@@ -19,7 +19,7 @@ if (!isCategorySlug(categorySlug)) {
 
 const category = CATEGORIES[categorySlug];
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === categorySlug))
+const posts = (await getCollection('blog', ({ data }) => isPublished(data) && data.category === categorySlug))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const allCategories = Object.values(CATEGORIES);
@@ -66,7 +66,7 @@ const pageDescription = category.description;
       ) : (
         <div class="posts-grid">
           {posts.map(post => (
-            <a href={`/blog/${post.id}`} class="post-card">
+            <a href={`/blog/${getPostSlug(post)}`} class="post-card">
               {post.data.coverImage ? (
                 <div class="post-card-img">
                   <img src={post.data.coverImage} alt={post.data.coverAlt ?? post.data.title} />

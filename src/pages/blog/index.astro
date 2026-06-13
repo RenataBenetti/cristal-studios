@@ -2,9 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import BlogJsonLd from '../../components/BlogJsonLd.astro';
-import { CATEGORIES, formatDate } from '../../lib/blog';
+import { CATEGORIES, formatDate, getPostSlug, isPublished } from '../../lib/blog';
 
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = (await getCollection('blog', ({ data }) => isPublished(data)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const blogTitle = "Blog Cristal Studios: Estratégia, Podcast, Vídeo e Conteúdo";
@@ -29,7 +29,7 @@ const blogDescription = "Insights estratégicos de quem produz podcast, vídeo e
       {allPosts.length > 0 ? (
         <div class="posts-grid">
           {allPosts.map(post => (
-            <a href={`/blog/${post.id}`} class="post-card">
+            <a href={`/blog/${getPostSlug(post)}`} class="post-card">
               <div class="post-img">
                 {post.data.coverImage ? (
                   <img src={post.data.coverImage} alt={post.data.coverAlt ?? post.data.title} loading="lazy" />

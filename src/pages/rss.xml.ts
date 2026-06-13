@@ -1,9 +1,9 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { CATEGORIES } from '../lib/blog';
+import { CATEGORIES, getPostSlug, isPublished } from '../lib/blog';
 
 export async function GET(context: { site?: URL }) {
-  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  const posts = (await getCollection('blog', ({ data }) => isPublished(data))).sort(
     (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
   );
 
@@ -16,7 +16,7 @@ export async function GET(context: { site?: URL }) {
       title: post.data.title,
       description: post.data.excerpt,
       pubDate: post.data.publishedAt,
-      link: `/blog/${post.id}`,
+      link: `/blog/${getPostSlug(post)}`,
       author: `relacionamento@cristalstudios.com (${post.data.author})`,
       categories: [CATEGORIES[post.data.category].name, ...post.data.tags],
     })),

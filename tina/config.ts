@@ -43,6 +43,13 @@ export default defineConfig({
           },
           {
             type: 'string',
+            name: 'slug',
+            label: 'URL personalizada (slug)',
+            description:
+              'Endereço do post no site (ex: como-gravar-podcast). Deixe em branco para gerar automaticamente a partir do título. Use só letras minúsculas, números e hífens.',
+          },
+          {
+            type: 'string',
             name: 'excerpt',
             label: 'Resumo (aparece na listagem do blog)',
             required: true,
