@@ -1,8 +1,11 @@
 ---
-title: "Podcast ou vídeo? A pergunta errada que custa caro para empresas em 2026"
-excerpt: "Empresas que perguntam 'podcast OU vídeo' já estão atrasadas. O conteúdo nasce uma vez e vira muitos formatos. O que importa é decidir o eixo — não o canal."
+title: Podcast ou vídeo? A pergunta errada que custa caro para empresas em 2026
+excerpt: Empresas que perguntam 'podcast OU vídeo' já estão atrasadas. O
+  conteúdo nasce uma vez e vira muitos formatos. O que importa é decidir o eixo
+  — não o canal.
 category: podcast-conteudo
 publishedAt: 2026-04-02
+coverImage: /blog-images/foto-cristal.jpg
 author: Cristal Studios
 featured: false
 tags:
@@ -11,7 +14,9 @@ tags:
   - podcast
 seo:
   title: "Podcast ou vídeo marketing: como escolher em 2026 | Cristal Studios"
-  description: "Em vez de escolher entre podcast e vídeo, decida o eixo de conteúdo e distribua em múltiplos formatos. Estratégia direta de quem produz há 40 anos."
+  description: Em vez de escolher entre podcast e vídeo, decida o eixo de conteúdo
+    e distribua em múltiplos formatos. Estratégia direta de quem produz há 40
+    anos.
 ---
 
 Toda semana alguém chega na Cristal com a mesma pergunta: *"o que vale mais a pena hoje, podcast ou vídeo?"*
