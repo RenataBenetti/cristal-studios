@@ -49,6 +49,16 @@ export default defineConfig({
             ui: { component: 'textarea' },
           },
           {
+            type: 'image',
+            name: 'coverImage',
+            label: 'Imagem de capa (aparece na listagem do blog)',
+          },
+          {
+            type: 'string',
+            name: 'coverAlt',
+            label: 'Descrição da imagem de capa (acessibilidade e Google)',
+          },
+          {
             type: 'string',
             name: 'category',
             label: 'Categoria',

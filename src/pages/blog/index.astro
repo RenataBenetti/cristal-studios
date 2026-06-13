@@ -7,11 +7,6 @@ import { CATEGORIES, formatDate } from '../../lib/blog';
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-const featured = allPosts.find(p => p.data.featured) ?? allPosts[0];
-const rest = allPosts.filter(p => p.id !== featured?.id);
-
-const categories = Object.values(CATEGORIES);
-
 const blogTitle = "Blog Cristal Studios: Estratégia, Podcast, Vídeo e Conteúdo";
 const blogDescription = "Insights estratégicos de quem produz podcast, vídeo e áudio profissional há mais de 40 anos. Conteúdo prático para empresas que querem construir autoridade real.";
 ---
@@ -23,344 +18,259 @@ const blogDescription = "Insights estratégicos de quem produz podcast, vídeo e
     description={blogDescription}
     url="/blog"
   />
-  <section class="blog-hero">
-    <div class="blog-hero-inner">
-      <span class="blog-tag">BLOG</span>
-      <h1>Estratégia, bastidores e o que aprendemos<br /><span class="highlight">em 40 anos produzindo conteúdo.</span></h1>
-      <p>Textos práticos para empresas que querem parar de fazer conteúdo e começar a construir autoridade.</p>
-    </div>
-  </section>
+  <section class="blog">
+    <div class="blog-inner">
+      <header class="blog-head">
+        <p class="eyebrow">BLOG</p>
+        <h1>Estratégia, bastidores e o que aprendemos em 40 anos produzindo conteúdo.</h1>
+        <p class="blog-sub">Textos práticos para empresas que querem parar de fazer conteúdo e começar a construir autoridade.</p>
+      </header>
 
-  <section class="blog-filters">
-    <div class="blog-filters-inner">
-      <a href="/blog" class="filter-chip active">Todos</a>
-      {categories.map(cat => (
-        <a href={`/blog/categoria/${cat.slug}`} class="filter-chip">{cat.name}</a>
-      ))}
-    </div>
-  </section>
-
-  {featured && (
-    <section class="featured-section">
-      <div class="featured-inner">
-        <a href={`/blog/${featured.id}`} class="featured-card">
-          {featured.data.coverImage ? (
-            <div class="featured-img">
-              <img src={featured.data.coverImage} alt={featured.data.coverAlt ?? featured.data.title} />
-            </div>
-          ) : (
-            <div class="featured-img featured-img-placeholder">
-              <span>{CATEGORIES[featured.data.category].shortName}</span>
-            </div>
-          )}
-          <div class="featured-body">
-            <span class="featured-pill">Em destaque · {CATEGORIES[featured.data.category].name}</span>
-            <h2>{featured.data.title}</h2>
-            <p>{featured.data.excerpt}</p>
-            <div class="featured-meta">
-              <span>{featured.data.author}</span>
-              <span class="dot">·</span>
-              <time datetime={featured.data.publishedAt.toISOString()}>{formatDate(featured.data.publishedAt)}</time>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-  )}
-
-  {rest.length > 0 && (
-    <section class="posts-section">
-      <div class="posts-inner">
-        <h2 class="section-heading">Últimos artigos</h2>
+      {allPosts.length > 0 ? (
         <div class="posts-grid">
-          {rest.map(post => (
+          {allPosts.map(post => (
             <a href={`/blog/${post.id}`} class="post-card">
-              {post.data.coverImage ? (
-                <div class="post-card-img">
-                  <img src={post.data.coverImage} alt={post.data.coverAlt ?? post.data.title} />
+              <div class="post-img">
+                {post.data.coverImage ? (
+                  <img src={post.data.coverImage} alt={post.data.coverAlt ?? post.data.title} loading="lazy" />
+                ) : (
+                  <div class="post-img-placeholder">
+                    <span>{CATEGORIES[post.data.category].shortName}</span>
+                  </div>
+                )}
+                <span class="post-tag">#{CATEGORIES[post.data.category].shortName.toUpperCase()}</span>
+              </div>
+              <div class="post-body">
+                <h2>{post.data.title}</h2>
+                <p class="post-excerpt">{post.data.excerpt}</p>
+                <div class="post-foot">
+                  <span class="read-more">
+                    <span class="arrow-box">
+                      <svg class="arrow arrow-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <svg class="arrow arrow-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                    Leia mais
+                  </span>
+                  <span class="post-date">
+                    <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+                    <span class="date-line"></span>
+                  </span>
                 </div>
-              ) : (
-                <div class="post-card-img post-card-img-placeholder">
-                  <span>{CATEGORIES[post.data.category].shortName}</span>
-                </div>
-              )}
-              <div class="post-card-body">
-                <span class="post-card-category">{CATEGORIES[post.data.category].name}</span>
-                <h3>{post.data.title}</h3>
-                <p>{post.data.excerpt}</p>
-                <time class="post-card-date" datetime={post.data.publishedAt.toISOString()}>
-                  {formatDate(post.data.publishedAt)}
-                </time>
               </div>
             </a>
           ))}
         </div>
-      </div>
-    </section>
-  )}
-
-  {allPosts.length === 0 && (
-    <section class="empty-state">
-      <p>Em breve, conteúdo novo aqui. Volte logo.</p>
-    </section>
-  )}
+      ) : (
+        <div class="empty-state">
+          <p>Em breve, conteúdo novo aqui. Volte logo.</p>
+        </div>
+      )}
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .blog-hero {
-    padding: 9rem 2rem 3rem;
-    text-align: center;
-    background:
-      radial-gradient(ellipse at top, rgba(232,130,26,0.12) 0%, transparent 60%),
-      var(--black);
+  .blog {
+    background: var(--black);
+    padding: 9rem 1.5rem 6rem;
   }
-  .blog-hero-inner {
-    max-width: 880px;
+  .blog-inner {
+    max-width: 1200px;
     margin: 0 auto;
   }
-  .blog-tag {
-    display: inline-block;
-    font-size: 0.72rem; font-weight: 700;
+
+  .blog-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 4rem;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
     letter-spacing: 0.18em;
     color: var(--amber);
-    background: rgba(232,130,26,0.1);
-    border: 1px solid rgba(232,130,26,0.35);
-    padding: 0.45rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
   }
-  .blog-hero h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 800;
-    line-height: 1.15;
+  .blog-head h1 {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.1;
     letter-spacing: -0.02em;
+    color: var(--white);
     margin: 0 0 1.2rem;
   }
-  .highlight { color: var(--amber); }
-  .blog-hero p {
-    font-size: 1.1rem;
-    color: #aaa;
+  .blog-sub {
+    font-size: 1.05rem;
     line-height: 1.6;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .blog-filters {
-    padding: 0 2rem 2.5rem;
-  }
-  .blog-filters-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 0.5rem;
-  }
-  .filter-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.55rem 1.2rem;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: #ccc;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .filter-chip:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-  }
-  .filter-chip.active {
-    background: var(--amber);
-    color: #000;
-    border-color: var(--amber);
-  }
-
-  .featured-section {
-    padding: 2rem 2rem 4rem;
-  }
-  .featured-inner {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  .featured-card {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
-  }
-  .featured-card:hover {
-    border-color: var(--amber);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.4), 0 0 50px rgba(232,130,26,0.15);
-  }
-  .featured-img {
-    background: var(--dark);
-    min-height: 360px;
-    position: relative;
-    overflow: hidden;
-  }
-  .featured-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block;
-  }
-  .featured-img-placeholder {
-    display: flex; align-items: center; justify-content: center;
-    background:
-      radial-gradient(ellipse at center, rgba(232,130,26,0.25) 0%, transparent 65%),
-      linear-gradient(135deg, var(--card) 0%, var(--dark) 100%);
-  }
-  .featured-img-placeholder span {
-    font-size: 4rem;
-    font-weight: 900;
-    color: rgba(232,130,26,0.6);
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-  }
-  .featured-body {
-    padding: 3rem;
-    display: flex; flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .featured-pill {
-    display: inline-block;
-    width: fit-content;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--amber);
-    background: rgba(232,130,26,0.1);
-    border: 1px solid rgba(232,130,26,0.3);
-    padding: 0.4rem 0.9rem;
-    border-radius: 100px;
-  }
-  .featured-body h2 {
-    font-size: clamp(1.4rem, 2.4vw, 2rem);
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-  .featured-body p {
     color: #aaa;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-  .featured-meta {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem;
-    color: #777;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-  }
-  .featured-meta .dot { color: #555; }
-
-  .posts-section {
-    padding: 0 2rem 6rem;
-  }
-  .posts-inner {
-    max-width: 1140px;
+    max-width: 600px;
     margin: 0 auto;
   }
-  .section-heading {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #aaa;
-    margin-bottom: 2rem;
-    letter-spacing: 0.02em;
-  }
+
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
   }
+
   .post-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
+    display: block;
     text-decoration: none;
     color: inherit;
-    display: flex; flex-direction: column;
-    transition: border-color 0.25s, transform 0.2s;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
   }
   .post-card:hover {
     border-color: var(--amber);
     transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45), 0 0 40px rgba(232,130,26,0.12);
   }
-  .post-card-img {
-    aspect-ratio: 16 / 9;
-    background: var(--dark);
+
+  .post-img {
+    position: relative;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
+    background: var(--dark);
   }
-  .post-card-img img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+  .post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  .post-card-img-placeholder {
-    display: flex; align-items: center; justify-content: center;
+  .post-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background:
-      radial-gradient(ellipse at center, rgba(232,130,26,0.2) 0%, transparent 65%),
+      radial-gradient(ellipse at center, rgba(232,130,26,0.22) 0%, transparent 65%),
       linear-gradient(135deg, var(--card) 0%, var(--dark) 100%);
   }
-  .post-card-img-placeholder span {
-    font-size: 2rem; font-weight: 900;
-    color: rgba(232,130,26,0.55);
+  .post-img-placeholder span {
+    font-size: 2.4rem;
+    font-weight: 800;
     letter-spacing: -0.03em;
+    color: rgba(232,130,26,0.55);
     text-transform: uppercase;
   }
-  .post-card-body {
-    padding: 1.5rem;
-    display: flex; flex-direction: column; gap: 0.7rem;
-    flex: 1;
-  }
-  .post-card-category {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+  .post-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(10,10,10,0.85);
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--amber);
+    padding: 0.45rem 0.85rem;
+    backdrop-filter: blur(4px);
   }
-  .post-card-body h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin: 0;
+
+  .post-body {
+    padding: 1.5rem 1.4rem 1.6rem;
   }
-  .post-card-body p {
-    color: #999;
+  .post-body h2 {
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin: 0 0 0.75rem;
+  }
+  .post-excerpt {
     font-size: 0.9rem;
-    line-height: 1.55;
-    margin: 0;
-    flex: 1;
+    line-height: 1.6;
+    color: #999;
+    margin: 0 0 1.5rem;
   }
-  .post-card-date {
-    color: #666;
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
+
+  .post-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #f0f0f0;
+  }
+  .arrow-box {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.7rem;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .arrow {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+  }
+  .arrow-1 {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+  }
+  .arrow-2 {
+    left: -1.4rem;
+    transform: translateY(0);
+    transition: left 0.5s ease-in-out;
+  }
+  .post-card:hover .arrow-box {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: #000000;
+  }
+  .post-card:hover .arrow-1 {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  .post-card:hover .arrow-2 {
+    left: 0.7rem;
+  }
+
+  .post-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: #777;
+    white-space: nowrap;
+  }
+  .date-line {
+    display: inline-block;
+    width: 3.5rem;
+    height: 1px;
+    background: var(--border);
   }
 
   .empty-state {
-    padding: 4rem 2rem 8rem;
     text-align: center;
+    padding: 4rem 1rem;
   }
   .empty-state p {
     color: #888;
     font-size: 1.05rem;
   }
 
-  @media (max-width: 900px) {
-    .featured-card { grid-template-columns: 1fr; }
-    .featured-img { min-height: 240px; }
-    .featured-body { padding: 2rem 1.5rem; }
-  }
   @media (max-width: 600px) {
-    .blog-hero { padding: 7rem 1.2rem 2rem; }
-    .blog-filters { padding: 0 1.2rem 2rem; }
-    .featured-section, .posts-section { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .blog { padding: 7rem 1.2rem 4rem; }
+    .blog-head { margin-bottom: 2.5rem; }
+    .post-date .date-line { width: 2rem; }
   }
 </style>
