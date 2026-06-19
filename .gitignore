@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Ferramentas de trabalho (squads AIOX) — não fazem parte do site
+squads/
