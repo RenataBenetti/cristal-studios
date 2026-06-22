@@ -1,0 +1,262 @@
+---
+import LandingPage from '../../layouts/LandingPage.astro';
+import { LEADS_SHEET_URL } from '../../lib/leads';
+
+const WA_NUMBER = "5519974062004";
+---
+
+<LandingPage
+  title="Diagnóstico Estratégico de Autoridade e Conteúdo — Cristal Studios"
+  description="Em poucos minutos, descubra se um podcast faz sentido para a sua empresa, qual formato gera mais resultado e como transformar conteúdo em vendas."
+>
+  <section class="lp-section dg-hero">
+    <div class="lp-container">
+      <span class="lp-tag">Diagnóstico Gratuito</span>
+      <h1 class="lp-h1">Diagnóstico Estratégico de <span class="highlight">Autoridade e Conteúdo</span></h1>
+      <p class="lp-lead">
+        Responda em poucos minutos e descubra se um podcast faz sentido para a sua empresa, qual formato gera mais resultado e como transformar conteúdo em vendas.
+      </p>
+    </div>
+  </section>
+
+  <section class="lp-section dg-form-section">
+    <div class="lp-container">
+      <form id="diag-form" class="dg-form">
+
+        <!-- Q1 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">1</span> Qual é o principal objetivo da sua empresa hoje?</legend>
+          <label class="opt"><input type="radio" name="q1" value="10" required /><span>Gerar vendas</span></label>
+          <label class="opt"><input type="radio" name="q1" value="10" /><span>Gerar leads</span></label>
+          <label class="opt"><input type="radio" name="q1" value="8" /><span>Fortalecer a marca</span></label>
+          <label class="opt"><input type="radio" name="q1" value="8" /><span>Autoridade no mercado</span></label>
+          <label class="opt"><input type="radio" name="q1" value="5" /><span>Atrair talentos</span></label>
+          <label class="opt"><input type="radio" name="q1" value="0" /><span>Ainda não sei</span></label>
+        </fieldset>
+
+        <!-- Q2 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">2</span> Sua empresa produz conteúdo com regularidade?</legend>
+          <label class="opt"><input type="radio" name="q2" value="10" required /><span>Toda semana</span></label>
+          <label class="opt"><input type="radio" name="q2" value="8" /><span>A cada quinze dias</span></label>
+          <label class="opt"><input type="radio" name="q2" value="4" /><span>Eventualmente</span></label>
+          <label class="opt"><input type="radio" name="q2" value="0" /><span>Não produz</span></label>
+        </fieldset>
+
+        <!-- Q3 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">3</span> Como você avalia a autoridade digital da sua empresa hoje?</legend>
+          <div class="dg-range">
+            <input type="range" name="q3" min="1" max="10" value="5" id="q3range" />
+            <output id="q3out">5</output>
+          </div>
+          <div class="dg-range-leg"><span>Pouca presença</span><span>Referência</span></div>
+        </fieldset>
+
+        <!-- Q4 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">4</span> Sua empresa tem alguém que poderia representar a marca em vídeos ou entrevistas?</legend>
+          <label class="opt"><input type="radio" name="q4" value="10" required /><span>Sim, várias pessoas</span></label>
+          <label class="opt"><input type="radio" name="q4" value="8" /><span>Sim, uma pessoa</span></label>
+          <label class="opt"><input type="radio" name="q4" value="4" /><span>Talvez</span></label>
+          <label class="opt"><input type="radio" name="q4" value="0" /><span>Não</span></label>
+        </fieldset>
+
+        <!-- Q5 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">5</span> Qual cenário mais representa a sua empresa?</legend>
+          <label class="opt"><input type="radio" name="q5" value="10" required /><span>Temos muito conhecimento e pouca visibilidade</span></label>
+          <label class="opt"><input type="radio" name="q5" value="8" /><span>Temos visibilidade, mas pouco conteúdo</span></label>
+          <label class="opt"><input type="radio" name="q5" value="8" /><span>Produzimos conteúdo, mas sem estratégia</span></label>
+          <label class="opt"><input type="radio" name="q5" value="5" /><span>Estamos começando agora</span></label>
+        </fieldset>
+
+        <!-- Q6 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">6</span> Com que frequência sua equipe conseguiria gravar?</legend>
+          <label class="opt"><input type="radio" name="q6" value="10" required /><span>Semanalmente</span></label>
+          <label class="opt"><input type="radio" name="q6" value="8" /><span>A cada quinze dias</span></label>
+          <label class="opt"><input type="radio" name="q6" value="10" /><span>Uma vez por mês</span></label>
+          <label class="opt"><input type="radio" name="q6" value="0" /><span>Ainda não sabemos</span></label>
+        </fieldset>
+
+        <!-- Q7 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">7</span> Quais canais são prioritários para a sua empresa? <small>(pode marcar mais de um)</small></legend>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="linkedin" /><span>LinkedIn</span></label>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="youtube" /><span>YouTube</span></label>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="instagram" /><span>Instagram</span></label>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="tiktok" /><span>TikTok</span></label>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="site" /><span>Site</span></label>
+          <label class="opt opt-check"><input type="checkbox" name="q7" value="email" /><span>E-mail</span></label>
+        </fieldset>
+
+        <!-- Q8 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">8</span> Hoje o seu conteúdo gera oportunidades comerciais?</legend>
+          <label class="opt"><input type="radio" name="q8" value="10" required /><span>Sim, com frequência</span></label>
+          <label class="opt"><input type="radio" name="q8" value="6" /><span>Às vezes</span></label>
+          <label class="opt"><input type="radio" name="q8" value="3" /><span>Raramente</span></label>
+          <label class="opt"><input type="radio" name="q8" value="0" /><span>Nunca</span></label>
+        </fieldset>
+
+        <!-- Q9 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">9</span> Quando você pretende fortalecer sua estratégia de conteúdo?</legend>
+          <label class="opt"><input type="radio" name="q9" value="10" required /><span>Imediatamente</span></label>
+          <label class="opt"><input type="radio" name="q9" value="8" /><span>Nos próximos 30 dias</span></label>
+          <label class="opt"><input type="radio" name="q9" value="5" /><span>Nos próximos 90 dias</span></label>
+          <label class="opt"><input type="radio" name="q9" value="0" /><span>Apenas pesquisando</span></label>
+        </fieldset>
+
+        <!-- Q10 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">10</span> Você acredita que sua empresa tem conhecimento para se tornar referência no mercado?</legend>
+          <label class="opt"><input type="radio" name="q10" value="10" required /><span>Sim</span></label>
+          <label class="opt"><input type="radio" name="q10" value="5" /><span>Talvez</span></label>
+          <label class="opt"><input type="radio" name="q10" value="0" /><span>Não</span></label>
+        </fieldset>
+
+        <!-- Identificação -->
+        <fieldset class="dg-q dg-id">
+          <legend>Para onde enviamos o seu diagnóstico?</legend>
+          <input type="text" name="nome" required placeholder="Seu nome" autocomplete="name" />
+          <input type="text" name="empresa" required placeholder="Nome da empresa" autocomplete="organization" />
+          <input type="tel" name="whatsapp" required placeholder="Seu WhatsApp (com DDD)" autocomplete="tel" />
+          <select name="segmento" required>
+            <option value="" disabled selected>Segmento da empresa</option>
+            <option>Saúde</option>
+            <option>Jurídico</option>
+            <option>Tecnologia</option>
+            <option>Indústria</option>
+            <option>Serviços</option>
+            <option>Educação</option>
+            <option>Outro</option>
+          </select>
+        </fieldset>
+
+        <button type="submit" class="lp-btn dg-submit">Ver meu diagnóstico →</button>
+        <p class="dg-note">Leva menos de 3 minutos. Seus dados são usados só para este contato.</p>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline data-sheet={LEADS_SHEET_URL} data-wa={WA_NUMBER}>
+    (function () {
+      var form = document.getElementById('diag-form');
+      if (!form) return;
+      var sheetUrl = document.currentScript.getAttribute('data-sheet');
+
+      var range = document.getElementById('q3range');
+      var out = document.getElementById('q3out');
+      if (range && out) range.addEventListener('input', function () { out.textContent = range.value; });
+
+      function pts(name) {
+        var el = form.querySelector('input[name="' + name + '"]:checked');
+        return el ? Number(el.value) : 0;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var p1 = pts('q1'), p2 = pts('q2'), p4 = pts('q4'), p5 = pts('q5'),
+            p6 = pts('q6'), p8 = pts('q8'), p9 = pts('q9'), p10 = pts('q10');
+
+        var nota3 = Number(range ? range.value : 5);
+        var p3 = nota3 <= 3 ? 10 : nota3 <= 6 ? 8 : nota3 <= 8 ? 5 : 2;
+
+        var canais = Array.prototype.slice.call(form.querySelectorAll('input[name="q7"]:checked')).map(function (c) { return c.value; });
+        var p7 = (canais.indexOf('linkedin') > -1 || canais.indexOf('youtube') > -1) ? 10
+               : canais.indexOf('instagram') > -1 ? 8
+               : canais.length ? 4 : 0;
+
+        var score = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10;
+        var perfilId = score < 40 ? 1 : score < 70 ? 2 : 3;
+
+        var autoridade = Math.round((nota3 + p2 + p8) / 3);
+        var potConteudo = Math.round((p4 + p5 + p10) / 3);
+        var potPodcast = Math.round((p4 + p6 + p9 + p10) / 4);
+
+        var dados = {
+          nome: form.nome.value.trim(),
+          empresa: form.empresa.value.trim(),
+          whatsapp: form.whatsapp.value.trim(),
+          segmento: form.segmento.value,
+          score: score, perfilId: perfilId,
+          autoridade: autoridade, potConteudo: potConteudo, potPodcast: potPodcast,
+          canais: canais.join(', ')
+        };
+
+        try { localStorage.setItem('cristal_diag', JSON.stringify(dados)); } catch (err) {}
+
+        try {
+          fetch(sheetUrl, {
+            method: 'POST', mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              aba: 'Diagnostico',
+              nome: dados.nome, empresa: dados.empresa, whatsapp: dados.whatsapp,
+              segmento: dados.segmento, pontuacao: score, perfil: perfilId,
+              autoridade: autoridade, conteudo: potConteudo, podcast: potPodcast,
+              canais: dados.canais, origem: 'Diagnóstico'
+            })
+          });
+        } catch (err) {}
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'diagnostico_concluido', perfil: perfilId, pontuacao: score });
+
+        window.location.href = '/resultado';
+      });
+    })();
+  </script>
+</LandingPage>
+
+<style>
+  .dg-hero { padding-bottom: 1rem; }
+  .dg-form-section { padding-top: 1rem; }
+  .dg-form { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; }
+  .dg-q {
+    border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.6rem;
+    background: var(--card); display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .dg-q legend {
+    font-size: 1.08rem; font-weight: 700; line-height: 1.35; color: #fff;
+    margin-bottom: 0.6rem; padding: 0; display: flex; align-items: baseline; gap: 0.5rem;
+  }
+  .dg-q legend small { color: var(--text-muted); font-weight: 500; font-size: 0.82rem; }
+  .dg-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 28px; height: 28px; border-radius: 50%; background: var(--amber);
+    color: #000; font-size: 0.85rem; font-weight: 900; flex-shrink: 0;
+  }
+  .opt {
+    display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem;
+    border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+    transition: border-color 0.15s, background 0.15s; font-size: 0.95rem; color: #ddd;
+  }
+  .opt:hover { border-color: var(--amber); }
+  .opt input { accent-color: var(--amber); width: 18px; height: 18px; flex-shrink: 0; }
+  .opt:has(input:checked) { border-color: var(--amber); background: rgba(232,130,26,0.1); color: #fff; }
+
+  .dg-range { display: flex; align-items: center; gap: 1rem; }
+  .dg-range input[type=range] { flex: 1; accent-color: var(--amber); height: 6px; }
+  .dg-range output {
+    min-width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+    background: var(--amber); color: #000; font-weight: 900; font-size: 1.2rem; border-radius: 12px;
+  }
+  .dg-range-leg { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); }
+
+  .dg-id input, .dg-id select {
+    width: 100%; padding: 0.95rem 1.1rem; font-size: 1rem; font-family: inherit;
+    background: rgba(255,255,255,0.05); color: #fff;
+    border: 1px solid var(--border); border-radius: 10px;
+  }
+  .dg-id input::placeholder { color: #888; }
+  .dg-id input:focus, .dg-id select:focus { outline: none; border-color: var(--amber); }
+  .dg-id select { color: #fff; }
+  .dg-id option { color: #000; }
+
+  .dg-submit { justify-content: center; width: 100%; cursor: pointer; border: none; font-size: 1.1rem; padding: 1.1rem; }
+  .dg-note { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin-top: -0.4rem; }
+</style>

@@ -1,0 +1,185 @@
+---
+import LandingPage from '../../layouts/LandingPage.astro';
+
+const WA_NUMBER = "5519974062004";
+---
+
+<LandingPage
+  title="Seu Diagnóstico Estratégico — Cristal Studios"
+  description="O resultado do seu Diagnóstico Estratégico de Autoridade e Conteúdo."
+>
+  <!-- Estado vazio (sem diagnóstico feito) -->
+  <section class="lp-section rs-empty" id="rs-empty" style="display:none">
+    <div class="lp-container" style="text-align:center">
+      <h1 class="lp-h1">Você ainda não fez o diagnóstico</h1>
+      <p class="lp-lead">Responda às perguntas e em poucos minutos você recebe o seu resultado.</p>
+      <a href="/diagnostico" class="lp-btn">Fazer o diagnóstico →</a>
+    </div>
+  </section>
+
+  <!-- Resultado -->
+  <div id="rs-content" style="display:none">
+    <section class="lp-section rs-hero">
+      <div class="lp-container">
+        <span class="lp-tag">Diagnóstico Estratégico</span>
+        <h1 class="lp-h1" id="rs-saudacao"></h1>
+        <p class="lp-lead">Com base nas suas respostas, montamos um retrato da sua oportunidade de autoridade e conteúdo.</p>
+      </div>
+    </section>
+
+    <section class="lp-section lp-section-dark">
+      <div class="lp-container rs-perfil">
+        <div class="rs-perfil-badge" id="rs-perfil-tag"></div>
+        <h2 class="lp-h2" id="rs-perfil-nome"></h2>
+        <p id="rs-perfil-desc"></p>
+        <div class="rs-rec">
+          <span>Recomendação</span>
+          <strong id="rs-recomendacao"></strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section">
+      <div class="lp-container">
+        <h2 class="lp-h2">Seus indicadores</h2>
+        <div class="rs-meters">
+          <div class="rs-meter">
+            <div class="rs-meter-top"><span>Nível de Autoridade</span><strong id="m-aut-n"></strong></div>
+            <div class="rs-bar"><i id="m-aut-bar"></i></div>
+          </div>
+          <div class="rs-meter">
+            <div class="rs-meter-top"><span>Potencial de Conteúdo</span><strong id="m-con-n"></strong></div>
+            <div class="rs-bar"><i id="m-con-bar"></i></div>
+          </div>
+          <div class="rs-meter">
+            <div class="rs-meter-top"><span>Potencial para Podcast</span><strong id="m-pod-n"></strong></div>
+            <div class="rs-bar"><i id="m-pod-bar"></i></div>
+          </div>
+        </div>
+        <div class="rs-opp">
+          <span class="rs-opp-tag">Oportunidade identificada</span>
+          <p id="rs-oportunidade"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section lp-cta-final rs-cta">
+      <div class="lp-container" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.2rem">
+        <h2 class="lp-h2">Seu próximo passo</h2>
+        <p style="color:#ccc; max-width:620px">
+          Agende uma Sessão Estratégica de 20 minutos com a Cristal Studios e receba um plano personalizado de conteúdo e autoridade para a sua empresa.
+        </p>
+        <a id="wa-btn" href="#" target="_blank" rel="noopener" class="lp-btn" data-wa={WA_NUMBER}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar minha Sessão Estratégica →
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var perfis = {
+        1: {
+          tag: 'Perfil 1',
+          nome: 'Presença Digital em Construção',
+          desc: 'Sua empresa ainda está estruturando a sua comunicação digital. Antes de investir em um programa de podcast, o ideal é organizar posicionamento, objetivos e estratégia de conteúdo.',
+          rec: 'Planejamento Estratégico de Conteúdo',
+          opp: 'Sua empresa tem espaço claro para crescer em presença digital. Com um planejamento bem feito, esse conhecimento pode virar conteúdo recorrente e gerar autoridade ao longo do tempo.'
+        },
+        2: {
+          tag: 'Perfil 2',
+          nome: 'Potencial de Autoridade',
+          desc: 'Sua empresa já possui conhecimento valioso e oportunidades claras de posicionamento. Com alguns ajustes estratégicos, dá para transformar conteúdo em autoridade e em negócios.',
+          rec: 'Programa de Conteúdo Estratégico',
+          opp: 'Sua empresa tem matéria-prima e visibilidade para avançar. O próximo nível é dar consistência e estratégia ao conteúdo, transformando conhecimento em oportunidades comerciais.'
+        },
+        3: {
+          tag: 'Perfil 3',
+          nome: 'Pronta para um Podcast Estratégico',
+          desc: 'Sua empresa tem conhecimento, porta-voz e maturidade para transformar um podcast em uma máquina de autoridade. O próximo passo é estruturar um programa de gravação e distribuição focado em resultados.',
+          rec: 'Podcast Corporativo Cristal Studios',
+          opp: 'Sua empresa tem especialistas com conhecimento relevante e disposição para gravar. Esse conhecimento ainda pode ser melhor transformado em conteúdo recorrente, o que representa uma grande oportunidade de posicionamento e geração de autoridade.'
+        }
+      };
+
+      var raw;
+      try { raw = localStorage.getItem('cristal_diag'); } catch (e) { raw = null; }
+      var d = null;
+      if (raw) { try { d = JSON.parse(raw); } catch (e) { d = null; } }
+
+      if (!d || !d.perfilId) {
+        document.getElementById('rs-empty').style.display = 'block';
+        return;
+      }
+      document.getElementById('rs-content').style.display = 'block';
+
+      var p = perfis[d.perfilId] || perfis[2];
+
+      document.getElementById('rs-saudacao').textContent =
+        (d.nome ? d.nome.split(' ')[0] + ', ' : '') + 'aqui está o diagnóstico da ' + (d.empresa || 'sua empresa') + '.';
+      document.getElementById('rs-perfil-tag').textContent = p.tag;
+      document.getElementById('rs-perfil-nome').textContent = p.nome;
+      document.getElementById('rs-perfil-desc').textContent = p.desc;
+      document.getElementById('rs-recomendacao').textContent = p.rec;
+      document.getElementById('rs-oportunidade').textContent = p.opp;
+
+      function meter(numId, barId, v) {
+        var val = Math.max(0, Math.min(10, v || 0));
+        document.getElementById(numId).textContent = val + '/10';
+        document.getElementById(barId).style.width = (val * 10) + '%';
+      }
+      meter('m-aut-n', 'm-aut-bar', d.autoridade);
+      meter('m-con-n', 'm-con-bar', d.potConteudo);
+      meter('m-pod-n', 'm-pod-bar', d.potPodcast);
+
+      var wa = document.getElementById('wa-btn');
+      var num = wa.getAttribute('data-wa');
+      var msg = 'Olá! Fiz o Diagnóstico Estratégico de Autoridade e Conteúdo. Sou ' +
+        (d.nome || '') + ', da ' + (d.empresa || '') + '. Meu resultado foi ' + p.tag +
+        ' (' + p.nome + '), com ' + d.score + ' pontos. Quero agendar a Sessão Estratégica de 20 minutos.';
+      wa.setAttribute('href', 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg));
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'resultado_visto', perfil: d.perfilId, pontuacao: d.score });
+    })();
+  </script>
+</LandingPage>
+
+<style>
+  .rs-perfil { max-width: 760px; }
+  .rs-perfil-badge {
+    display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--amber);
+    background: rgba(232,130,26,0.12); border: 1px solid rgba(232,130,26,0.4);
+    padding: 0.4rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;
+  }
+  .rs-perfil p { color: #ccc; font-size: 1.05rem; line-height: 1.7; }
+  .rs-rec {
+    margin-top: 1.5rem; padding: 1.25rem 1.5rem; border-radius: 14px;
+    background: rgba(232,130,26,0.08); border: 1px solid rgba(232,130,26,0.3);
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .rs-rec span { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 700; }
+  .rs-rec strong { font-size: 1.3rem; color: #fff; }
+
+  .rs-meters { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1.5rem; max-width: 760px; }
+  .rs-meter-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+  .rs-meter-top span { font-size: 1rem; font-weight: 600; color: #ddd; }
+  .rs-meter-top strong { font-size: 1.2rem; color: var(--amber); font-weight: 900; }
+  .rs-bar { height: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; overflow: hidden; }
+  .rs-bar i {
+    display: block; height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--amber-dark), var(--amber-light));
+    border-radius: 100px; transition: width 0.8s ease;
+  }
+  .rs-opp {
+    margin-top: 2.5rem; padding: 1.75rem; border-radius: 16px;
+    background: var(--card); border: 1px solid var(--border); max-width: 760px;
+  }
+  .rs-opp-tag { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); font-weight: 700; }
+  .rs-opp p { margin-top: 0.6rem; color: #ccc; font-size: 1.02rem; line-height: 1.7; }
+
+  .rs-cta { background: var(--dark); }
+  .rs-cta .lp-btn { justify-content: center; }
+</style>
