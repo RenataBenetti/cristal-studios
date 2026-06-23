@@ -117,6 +117,16 @@ const WA_NUMBER = "5519974062004";
           <label class="opt"><input type="radio" name="q10" value="0" /><span>Não</span></label>
         </fieldset>
 
+        <!-- Q11 -->
+        <fieldset class="dg-q">
+          <legend><span class="dg-num">11</span> Qual a verba mensal destinada à produção de podcast e conteúdo?</legend>
+          <div class="dg-range">
+            <input type="range" name="q11" min="0" max="10000" step="100" value="1000" id="q11range" />
+            <output id="q11out" class="dg-out-wide">R$ 1.000</output>
+          </div>
+          <div class="dg-range-leg"><span>Sem verba ainda</span><span>R$ 10.000+</span></div>
+        </fieldset>
+
         <!-- Identificação -->
         <fieldset class="dg-q dg-id">
           <legend>Para onde enviamos o seu diagnóstico?</legend>
@@ -151,6 +161,11 @@ const WA_NUMBER = "5519974062004";
       var out = document.getElementById('q3out');
       if (range && out) range.addEventListener('input', function () { out.textContent = range.value; });
 
+      var r11 = document.getElementById('q11range');
+      var o11 = document.getElementById('q11out');
+      function fmtVerba(v) { v = Number(v); return v >= 10000 ? 'R$ 10.000+' : 'R$ ' + v.toLocaleString('pt-BR'); }
+      if (r11 && o11) r11.addEventListener('input', function () { o11.textContent = fmtVerba(r11.value); });
+
       function pts(name) {
         var el = form.querySelector('input[name="' + name + '"]:checked');
         return el ? Number(el.value) : 0;
@@ -177,11 +192,14 @@ const WA_NUMBER = "5519974062004";
         var potConteudo = Math.round((p4 + p5 + p10) / 3);
         var potPodcast = Math.round((p4 + p6 + p9 + p10) / 4);
 
+        var verba = r11 ? fmtVerba(r11.value) : '';
+
         var dados = {
           nome: form.nome.value.trim(),
           empresa: form.empresa.value.trim(),
           whatsapp: form.whatsapp.value.trim(),
           segmento: form.segmento.value,
+          verba: verba,
           score: score, perfilId: perfilId,
           autoridade: autoridade, potConteudo: potConteudo, potPodcast: potPodcast,
           canais: canais.join(', ')
@@ -196,7 +214,7 @@ const WA_NUMBER = "5519974062004";
             body: JSON.stringify({
               aba: 'Diagnostico',
               nome: dados.nome, empresa: dados.empresa, whatsapp: dados.whatsapp,
-              segmento: dados.segmento, pontuacao: score, perfil: perfilId,
+              segmento: dados.segmento, verba: verba, pontuacao: score, perfil: perfilId,
               autoridade: autoridade, conteudo: potConteudo, podcast: potPodcast,
               canais: dados.canais, origem: 'Diagnóstico'
             })
@@ -246,6 +264,7 @@ const WA_NUMBER = "5519974062004";
     background: var(--amber); color: #000; font-weight: 900; font-size: 1.2rem; border-radius: 12px;
   }
   .dg-range-leg { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); }
+  .dg-out-wide { min-width: 132px; padding: 0 0.8rem; font-size: 1.05rem; border-radius: 12px; }
 
   .dg-id input, .dg-id select {
     width: 100%; padding: 0.95rem 1.1rem; font-size: 1rem; font-family: inherit;
