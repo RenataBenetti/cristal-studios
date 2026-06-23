@@ -1,5 +1,7 @@
 ---
 import LandingPage from '../../layouts/LandingPage.astro';
+import Depoimentos from '../../components/Depoimentos.astro';
+import LeadForm from '../../components/LeadForm.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Jingle e quero um orçamento para minha empresa.");
@@ -25,7 +27,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
         Enquanto você acha que jingle não funciona,<br class="br-desk" />
         seu concorrente já está na cabeça do seu cliente.
       </p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+      <a href="#form" class="lp-btn lp-btn-hero">
         <Fragment set:html={WA_ICON} />
         Quero um jingle para minha empresa
       </a>
@@ -77,7 +79,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       <div class="lp-dor-cta">
         <div class="lp-cta-mini-card">
           <p class="lp-cta-mini-label">Pronto para ser lembrado?</p>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="width:100%; justify-content:center">
+          <a href="#form" class="lp-btn" style="width:100%; justify-content:center">
             <Fragment set:html={WA_ICON} />
             Quero meu jingle agora
           </a>
@@ -145,7 +147,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
             <div class="lp-entrega-step"><span>Dia 1</span><p>Briefing + composição</p></div>
             <div class="lp-entrega-step"><span>Dia 2</span><p>Gravação + entrega</p></div>
           </div>
-          <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="margin-top:1.5rem; justify-content:center">
+          <a href="#form" class="lp-btn" style="margin-top:1.5rem; justify-content:center">
             <Fragment set:html={WA_ICON} />
             Começar agora
           </a>
@@ -197,7 +199,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
           do seu cliente <span class="highlight">ainda essa semana.</span>
         </h2>
         <p>Fale agora com a Cristal Studios e receba seu orçamento sem compromisso.</p>
-        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+        <a href="#form" class="lp-btn lp-btn-hero">
           <Fragment set:html={WA_ICON} />
           Quero meu jingle profissional
         </a>
@@ -211,6 +213,10 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       </div>
     </div>
   </section>
+
+  <Depoimentos />
+
+  <LeadForm servico="Jingle" titulo="Quer um jingle que faz sua marca ser lembrada?" texto="Preencha seus dados e continue no WhatsApp. Orçamento sem compromisso." />
 
 </LandingPage>
 

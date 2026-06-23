@@ -1,5 +1,7 @@
 ---
 import LandingPage from '../../layouts/LandingPage.astro';
+import Depoimentos from '../../components/Depoimentos.astro';
+import LeadForm from '../../components/LeadForm.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Vídeo Institucional e quero um orçamento para minha empresa.");
@@ -23,7 +25,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       <p class="lp-lead">
         Um vídeo institucional bem feito vale mais do que mil argumentos de venda. Mostramos quem você é, o que entrega e por que o cliente deve escolher você, com produção que transmite confiança desde o primeiro frame.
       </p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <a href="#form" class="lp-btn">
         <Fragment set:html={WA_ICON} />
         Quero um orçamento
       </a>
@@ -76,12 +78,16 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
     <div class="lp-container lp-cta-inner">
       <h2 class="lp-h2">Sua empresa merece ser vista <span class="highlight">do jeito certo.</span></h2>
       <p>Solicite um orçamento sem compromisso.</p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <a href="#form" class="lp-btn">
         <Fragment set:html={WA_ICON} />
         Falar com a Cristal Studios
       </a>
     </div>
   </section>
+
+  <Depoimentos />
+
+  <LeadForm servico="Vídeo Institucional" titulo="Sua empresa merece ser vista do jeito certo." texto="Preencha seus dados e continue no WhatsApp. Orçamento sem compromisso." />
 
 </LandingPage>
 

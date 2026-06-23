@@ -1,0 +1,46 @@
+---
+// Seção de depoimentos em vídeo, reutilizável em qualquer página (estilo próprio).
+// Usa os 3 vídeos que funcionam (olga.mp4 está corrompido e ficou de fora).
+const depoimentos = [
+  { src: '/depoimentos/fabio.mp4', name: 'Fábio', role: 'Empresário · Campinas/SP' },
+  { src: '/depoimentos/george.mp4', name: 'George', role: 'Cliente · Campinas/SP' },
+  { src: '/depoimentos/desire.mp4', name: 'Desirée', role: 'Cliente · Campinas/SP' },
+];
+---
+<section class="dp-sec">
+  <div class="dp-wrap">
+    <span class="dp-eyebrow">O que dizem nossos clientes</span>
+    <h2 class="dp-title">Marcas que confiam na <span class="dp-am">Cristal Studios</span></h2>
+    <div class="dp-grid">
+      {depoimentos.map((d) => (
+        <figure class="dp-card">
+          <video src={d.src} controls preload="metadata" playsinline></video>
+          <figcaption>
+            <strong>{d.name}</strong>
+            <span>{d.role}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .dp-sec { padding: 4rem 1.5rem; background: var(--dark); }
+  .dp-wrap { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .dp-eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 1rem;
+  }
+  .dp-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; line-height: 1.25; margin-bottom: 2rem; color: #fff; }
+  .dp-am { color: var(--amber); }
+  .dp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .dp-card { margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .dp-card video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: #000; }
+  .dp-card figcaption { padding: 1rem 1.25rem; text-align: left; }
+  .dp-card figcaption strong { display: block; color: #fff; font-size: 0.98rem; }
+  .dp-card figcaption span { color: var(--text-muted); font-size: 0.85rem; }
+  @media (max-width: 768px) {
+    .dp-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+  }
+</style>

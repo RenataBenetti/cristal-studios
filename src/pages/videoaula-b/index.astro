@@ -3,6 +3,8 @@
 // Público: médicos, advogados, terapeutas
 // Hipótese: profissional já tentou gravar sozinho e ficou insatisfeito
 import LandingPage from '../../layouts/LandingPage.astro';
+import Depoimentos from '../../components/Depoimentos.astro';
+import LeadForm from '../../components/LeadForm.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Videoaula e quero um orçamento para gravar meu curso.");
@@ -27,7 +29,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       <p class="lp-lead">
         Você passou anos estudando para ser o melhor no que faz. Não deixe uma câmera ruim e um fundo de consultório destruírem a sua credibilidade nos primeiros 3 segundos de vídeo.
       </p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+      <a href="#form" class="lp-btn lp-btn-hero">
         <Fragment set:html={WA_ICON} />
         Quero gravar do jeito certo
       </a>
@@ -56,7 +58,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       </div>
       <div class="lp-dor-cta">
         <p>Isso acontece porque gravar e editar são profissões, não é falta de esforço, é falta de estrutura.</p>
-        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+        <a href="#form" class="lp-btn">
           <Fragment set:html={WA_ICON} />
           Resolver isso de uma vez
         </a>
@@ -104,7 +106,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
           <div class="lp-mini-card">
             <p class="lp-mini-titulo">Quanto tempo você já perdeu tentando gravar sozinho?</p>
             <p class="lp-mini-sub">Na Cristal Studios, você grava em um dia e recebe tudo pronto.</p>
-            <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn" style="justify-content:center">
+            <a href="#form" class="lp-btn" style="justify-content:center">
               <Fragment set:html={WA_ICON} />
               Pedir orçamento agora
             </a>
@@ -148,7 +150,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
           <span class="highlight">por causa de vídeo ruim.</span>
         </h2>
         <p>Fale com a Cristal Studios e receba um orçamento para o seu projeto.</p>
-        <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn lp-btn-hero">
+        <a href="#form" class="lp-btn lp-btn-hero">
           <Fragment set:html={WA_ICON} />
           Quero gravar meu curso
         </a>
@@ -162,6 +164,10 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       </div>
     </div>
   </section>
+
+  <Depoimentos />
+
+  <LeadForm servico="Videoaula B" titulo="Chega de adiar seu curso por causa de vídeo ruim." texto="Preencha seus dados e continue no WhatsApp. A gente grava, edita e entrega pronto." />
 
 </LandingPage>
 

@@ -1,5 +1,7 @@
 ---
 import LandingPage from '../../layouts/LandingPage.astro';
+import Depoimentos from '../../components/Depoimentos.astro';
+import LeadForm from '../../components/LeadForm.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Jingle Político e quero um orçamento para minha campanha.");
@@ -23,7 +25,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       <p class="lp-lead">
         Na política, presença sonora é presença de voto. Criamos jingles que grudam na memória do eleitor, com agilidade para os prazos da campanha e qualidade de estúdio profissional.
       </p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <a href="#form" class="lp-btn">
         <Fragment set:html={WA_ICON} />
         Solicitar orçamento da campanha
       </a>
@@ -74,12 +76,16 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
     <div class="lp-container lp-cta-inner">
       <h2 class="lp-h2">Sua campanha merece um jingle <span class="highlight">que vence.</span></h2>
       <p>Fale com a Cristal Studios agora e garanta sua produção no prazo.</p>
-      <a href={WA_LINK} target="_blank" rel="noopener" class="lp-btn">
+      <a href="#form" class="lp-btn">
         <Fragment set:html={WA_ICON} />
         Falar com a Cristal Studios
       </a>
     </div>
   </section>
+
+  <Depoimentos />
+
+  <LeadForm servico="Jingle Político" titulo="Sua campanha merece um jingle que vence." texto="Preencha seus dados e continue no WhatsApp. Atendemos no prazo da sua campanha." />
 
 </LandingPage>
 
