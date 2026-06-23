@@ -170,6 +170,13 @@ const WA_NUMBER = "5519974062004";
         var el = form.querySelector('input[name="' + name + '"]:checked');
         return el ? Number(el.value) : 0;
       }
+      function resp(name) {
+        var el = form.querySelector('input[name="' + name + '"]:checked');
+        if (!el) return '';
+        var box = el.closest('.opt');
+        var sp = box ? box.querySelector('span') : null;
+        return sp ? sp.textContent.trim() : '';
+      }
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -213,10 +220,26 @@ const WA_NUMBER = "5519974062004";
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
               aba: 'Diagnostico',
-              nome: dados.nome, empresa: dados.empresa, whatsapp: dados.whatsapp,
-              segmento: dados.segmento, verba: verba, pontuacao: score, perfil: perfilId,
-              autoridade: autoridade, conteudo: potConteudo, podcast: potPodcast,
-              canais: dados.canais, origem: 'Diagnóstico'
+              'Nome': dados.nome,
+              'Empresa': dados.empresa,
+              'WhatsApp': dados.whatsapp,
+              'Segmento': dados.segmento,
+              'Verba mensal': verba,
+              '1. Objetivo com conteúdo': resp('q1'),
+              '2. Frequência de conteúdo': resp('q2'),
+              '3. Autoridade (nota)': nota3 + '/10',
+              '4. Porta-voz': resp('q4'),
+              '5. Cenário': resp('q5'),
+              '6. Pode gravar': resp('q6'),
+              '7. Canais prioritários': canais.join(', '),
+              '8. Gera oportunidades': resp('q8'),
+              '9. Quando pretende': resp('q9'),
+              '10. Vira referência': resp('q10'),
+              'Pontuação': score,
+              'Perfil': perfilId,
+              'Ind. Autoridade': autoridade,
+              'Ind. Conteúdo': potConteudo,
+              'Ind. Podcast': potPodcast
             })
           });
         } catch (err) {}
