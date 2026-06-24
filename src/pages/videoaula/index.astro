@@ -5,6 +5,7 @@
 import LandingPage from '../../layouts/LandingPage.astro';
 import Depoimentos from '../../components/Depoimentos.astro';
 import LeadForm from '../../components/LeadForm.astro';
+import OfertaPacote from '../../components/OfertaPacote.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Videoaula e quero um orçamento para gravar meu curso.");
@@ -122,6 +123,17 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       </div>
     </div>
   </section>
+
+  <OfertaPacote
+    nome="Estúdio do Especialista"
+    itens={[
+      "Estúdio completo: câmera, iluminação, microfone e cenário profissional",
+      "Direção durante a gravação, para você ficar à vontade na frente da câmera",
+      "Edição completa: cortes, trilha, vinheta, legendas e arte de abertura",
+      "Vídeo entregue pronto para publicar na sua plataforma",
+    ]}
+    bonus="um vídeo curto de divulgação do seu curso, pronto para postar nas redes"
+  />
 
   <!-- CTA FINAL COM FOTO -->
   <section class="lp-cta-final">
