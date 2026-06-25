@@ -7,11 +7,13 @@ interface Props {
   servico: string;
   titulo?: string;
   texto?: string;
+  metaEvent?: string;
 }
 const {
   servico,
   titulo = 'Vamos conversar sobre o seu projeto?',
   texto = 'Preencha seus dados e continue a conversa com a gente no WhatsApp.',
+  metaEvent,
 } = Astro.props;
 
 const WA_NUMBER = '5519974062004';
@@ -34,7 +36,7 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
   </div>
 </section>
 
-<script is:inline define:vars={{ sheetUrl: LEADS_SHEET_URL, waNumber: WA_NUMBER, servico }}>
+<script is:inline define:vars={{ sheetUrl: LEADS_SHEET_URL, waNumber: WA_NUMBER, servico, metaEvent }}>
   (function () {
     var form = document.getElementById('lead-form');
     if (!form) return;
@@ -50,6 +52,9 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
           body: JSON.stringify({ nome: nome, empresa: empresa, email: email, origem: servico })
         });
       } catch (err) {}
+      if (metaEvent && typeof window.fbq === 'function') {
+        try { window.fbq('track', metaEvent); } catch (err) {}
+      }
       var msg = 'Olá! Sou ' + nome + ', da ' + empresa + ' (' + email + '). ' +
         'Vim pela página de ' + servico + ' e quero falar com a Cristal Studios.';
       window.dataLayer = window.dataLayer || [];
