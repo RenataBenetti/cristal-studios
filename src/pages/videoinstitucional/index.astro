@@ -2,6 +2,7 @@
 import LandingPage from '../../layouts/LandingPage.astro';
 import Depoimentos from '../../components/Depoimentos.astro';
 import LeadForm from '../../components/LeadForm.astro';
+import OfertaPacote from '../../components/OfertaPacote.astro';
 
 const WA_NUMBER = "5519974062004";
 const WA_MSG = encodeURIComponent("Olá! Vim pela página de Vídeo Institucional e quero um orçamento para minha empresa.");
@@ -72,6 +73,19 @@ const WA_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
       </div>
     </div>
   </section>
+
+  <OfertaPacote
+    nome="Vídeo que Posiciona"
+    itens={[
+      "Roteiro estratégico alinhado à sua marca e ao seu objetivo",
+      "Gravação em estúdio profissional ou na sua empresa",
+      "Edição completa com trilha, motion graphics e legendas",
+      "Identidade visual da sua marca aplicada no vídeo",
+      "Arquivos em múltiplos formatos: site, redes e apresentações",
+    ]}
+    bonus="cortes verticais do seu vídeo para Reels, Stories e LinkedIn"
+    garantia="Você aprova o roteiro antes de gravar e o corte final antes da entrega. Nada vai ao ar sem o seu sim."
+  />
 
   <!-- CTA FINAL -->
   <section class="lp-section lp-cta-final">
