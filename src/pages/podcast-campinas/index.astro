@@ -1,0 +1,195 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Depoimentos from '../../components/Depoimentos.astro';
+
+const WA_NUMBER = '5519974062004';
+const WA_MSG = encodeURIComponent('Olá! Vim pela página de Podcast em Campinas e quero saber mais sobre a produção para profissionais liberais.');
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+
+const faq = [
+  {
+    q: 'Preciso saber gravar ou editar para ter um podcast?',
+    a: 'Não. Você só grava. A parte técnica, a edição, os cortes para redes e a publicação nas plataformas são por nossa conta.',
+  },
+  {
+    q: 'Quanto tempo preciso reservar na minha agenda?',
+    a: 'Uma única sessão de gravação rende vários episódios e cortes. Você concentra a gravação em um momento e nós cuidamos do resto.',
+  },
+  {
+    q: 'Podcast funciona para a minha área (medicina, direito, contabilidade, consultoria)?',
+    a: 'Sim. O podcast posiciona você como referência no seu mercado e faz o cliente chegar já confiando no seu trabalho, antes mesmo do primeiro contato.',
+  },
+  {
+    q: 'Onde fica o estúdio?',
+    a: 'Em Campinas/SP, na Rua Arlindo Carpino, 20, Novo Taquaral. Atendemos profissionais de Campinas e região.',
+  },
+  {
+    q: 'Preciso ter experiência na frente do microfone?',
+    a: 'Não. Nossa equipe conduz a gravação e deixa você à vontade, no seu ritmo.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Produção de Podcast em Campinas para Profissionais Liberais',
+  serviceType: 'Produção de podcast',
+  provider: { '@type': 'LocalBusiness', name: 'Cristal Studios' },
+  areaServed: { '@type': 'City', name: 'Campinas' },
+  description:
+    'Estúdio de podcast em Campinas para médicos, advogados, contadores e consultores. Gravação, edição, cortes para redes e publicação.',
+};
+---
+
+<Layout
+  title="Estúdio de Podcast em Campinas para Médicos, Advogados e Consultores | Cristal Studios"
+  description="Estúdio de podcast em Campinas para profissionais liberais. Você grava e leva tudo pronto: edição, cortes e publicação. Mais de 40 anos de experiência em áudio e vídeo."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="pc-hero">
+    <div class="pc-container">
+      <p class="pc-eyebrow">Produção de Podcast · Campinas/SP</p>
+      <h1>Estúdio de Podcast em Campinas para Médicos, Advogados e Consultores</h1>
+      <p class="pc-lead">
+        Você grava. A gente cuida da edição, dos cortes para redes e da publicação. Um podcast profissional para construir autoridade no seu mercado, sem tirar tempo da sua agenda.
+      </p>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="pc-btn">Falar com a Cristal Studios</a>
+    </div>
+  </section>
+
+  <!-- AUTORIDADE -->
+  <section class="pc-section">
+    <div class="pc-container pc-narrow">
+      <h2>Quem não é visto, é comparado. Quem é autoridade, é escolhido.</h2>
+      <p>
+        Para o profissional liberal, a reputação é o ativo mais importante. Médicos, advogados, contadores e consultores que aparecem com conteúdo de qualidade deixam de competir por preço e passam a ser procurados pelo nome.
+      </p>
+      <p>
+        O podcast é a forma mais eficiente de transformar o que você já sabe em autoridade. Um episódio bem produzido mostra seu conhecimento, gera confiança e trabalha por você todos os dias, nas plataformas onde seu cliente já busca referências.
+      </p>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="pc-section pc-dark">
+    <div class="pc-container">
+      <h2>Feito para quem vive de conhecimento</h2>
+      <div class="pc-grid">
+        <div class="pc-card"><h3>Médicos e profissionais da saúde</h3><p>Conteúdo que educa pacientes e posiciona você como referência na sua especialidade.</p></div>
+        <div class="pc-card"><h3>Advogados</h3><p>Autoridade no seu nicho do direito e captação qualificada, dentro dos limites éticos da profissão.</p></div>
+        <div class="pc-card"><h3>Contadores e consultores</h3><p>Mostre domínio do seu mercado e atraia clientes que chegam já confiando no seu trabalho.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="pc-section">
+    <div class="pc-container">
+      <h2>Como funciona</h2>
+      <div class="pc-steps">
+        <div class="pc-step"><span>1</span><div><strong>Conversa inicial</strong><p>Entendemos a sua área, o seu público e o objetivo do seu podcast.</p></div></div>
+        <div class="pc-step"><span>2</span><div><strong>Gravação no estúdio</strong><p>Você grava em Campinas, com som e imagem profissionais. Nossa equipe conduz tudo.</p></div></div>
+        <div class="pc-step"><span>3</span><div><strong>Edição e cortes</strong><p>Editamos o episódio e preparamos cortes verticais para Instagram, LinkedIn e YouTube.</p></div></div>
+        <div class="pc-step"><span>4</span><div><strong>Publicação</strong><p>Entregamos pronto e publicamos no Spotify, no YouTube e nas demais plataformas.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE A CRISTAL -->
+  <section class="pc-section pc-dark">
+    <div class="pc-container pc-narrow">
+      <h2>Por que a Cristal Studios</h2>
+      <p>
+        A Cristal Studios produz áudio e vídeo em Campinas desde 1984. São mais de 40 anos de experiência, com equipe técnica completa e três estúdios de gravação: Ágata, Pérola e Safira, cada um com uma estética diferente para combinar com a sua marca.
+      </p>
+      <p>
+        A parte difícil é com a gente. A edição está inclusa e você recebe o episódio pronto para publicar. A sua parte é ter o que dizer.
+      </p>
+    </div>
+  </section>
+
+  <Depoimentos />
+
+  <!-- FAQ -->
+  <section class="pc-section">
+    <div class="pc-container pc-narrow">
+      <h2>Perguntas frequentes</h2>
+      <div class="pc-faq">
+        {faq.map((f) => (
+          <div class="pc-faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="pc-section pc-dark pc-cta">
+    <div class="pc-container pc-narrow">
+      <h2>Vamos colocar o seu podcast no ar?</h2>
+      <p>Fale com a Cristal Studios e conheça o estúdio em Campinas. Você sai com clareza sobre o formato ideal para o seu podcast.</p>
+      <a href={WA_LINK} target="_blank" rel="noopener" class="pc-btn">Falar no WhatsApp</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pc-container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  .pc-narrow { max-width: 760px; }
+  .pc-section { padding: 4.5rem 0; }
+  .pc-dark { background: var(--dark); }
+  .pc-hero { padding: 8rem 0 4rem; }
+  .pc-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+  .pc-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; max-width: 900px; }
+  .pc-lead { font-size: clamp(1.05rem, 2vw, 1.2rem); color: #ccc; line-height: 1.7; max-width: 700px; margin: 1.5rem 0 2rem; }
+  .pc-section h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; line-height: 1.25; margin-bottom: 1.25rem; }
+  .pc-section p { color: #bbb; line-height: 1.8; font-size: 1.05rem; margin-bottom: 1rem; }
+  .pc-btn {
+    display: inline-block; background: var(--amber); color: #000; font-weight: 700;
+    font-size: 1.05rem; padding: 1rem 2rem; border-radius: 10px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .pc-btn:hover { background: var(--amber-light); transform: translateY(-2px); }
+
+  .pc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .pc-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+  .pc-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .pc-card p { font-size: 0.92rem; color: #999; margin: 0; }
+
+  .pc-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; }
+  .pc-step { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .pc-step span {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--amber); color: #000; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pc-step strong { display: block; margin-bottom: 0.25rem; }
+  .pc-step p { color: #999; font-size: 0.95rem; margin: 0; }
+
+  .pc-faq { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+  .pc-faq-item { border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.6rem; background: var(--card); }
+  .pc-faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .pc-faq-item p { color: #aaa; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+  .pc-cta { text-align: center; }
+  .pc-cta p { max-width: 560px; margin-left: auto; margin-right: auto; }
+
+  @media (max-width: 768px) {
+    .pc-grid { grid-template-columns: 1fr; }
+  }
+</style>
